@@ -1,0 +1,622 @@
+
+{% include head-post.html %}
+
+<body>
+
+  {% include menu.html %}
+  <header class="page-template {{ page.classe_categoria }} {% if page.url_short == nil %}not-video{% else %}yes-video{% endif %}">
+
+      <div class="container">
+        <div class="items-menu">
+          <div class="menu">
+            <img src="./imagens/menu.svg" alt="Ícone do menu" />
+          </div>
+          <a href="/">
+            <div class="logos-top">
+              <img class="logos-svg" src="./imagens/logos-top.svg" alt="" />
+            </div>
+          </a>
+          <div class="search" onclick="btnSearchSugestoes()">
+            <p>Buscar</p>
+            <img
+              class="search-icon"
+              src="./imagens/lupa.svg"
+              alt="Ícone de busca"
+            />
+          </div>
+        </div>
+        {% if page.url_short == nil %}
+        <div class="container-termo" style="display: flex; flex-direction: column; align-items: center;">
+          <div class="termo" style="max-width: 650px;">
+            <h1>O que é <br><strong>{{ page.title }}</strong><strong></strong></h1>
+            <!-- <p>?</p> -->
+          </div>
+          <div class="btn-redes">
+            <img src="./imagens/btn-zap.svg" alt="" />
+            <img src="./imagens/btn-twitter.svg" alt="" />
+            <img src="./imagens/btn-link.svg" alt="" />
+          </div>
+        </div>
+      {% else %}
+        <div class="container-termo">
+          <div class="termo">
+            <h1 style="align-items: flex-start;">O que é <br><strong style="text-align: start;">{{ page.title }}</strong><strong></strong></h1>
+            <!-- <p>?</p> -->
+          </div>
+          <div class="btn-redes">
+            <img src="./imagens/btn-zap.svg" alt="" />
+            <img src="./imagens/btn-twitter.svg" alt="" />
+            <img src="./imagens/btn-link.svg" alt="" />
+          </div>
+        </div>
+      {% endif %}
+      
+
+      </div>
+    </header>
+
+    <main class="term-content">
+
+      {% if page.url_short %}
+        <section class="video">
+          <iframe
+            width="280"
+            height="530"
+            src="{{ page.url_short }}"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </section>
+      {% else %}
+        <section class="video" style="display: none;">
+        </section>
+      {% endif %}
+
+      {% if page.url_foto_destaque and page.url_short == nil %}
+        <section class="foto-capa">
+          <img src="{{ page.url_foto_destaque }}" alt="">
+        </section>
+      {% else %}
+        <section class="foto-capa" style="display: none !important;">
+        </section>
+      {% endif %}
+
+
+      <section class="text">
+        
+        <article>
+            <p class="info-atualizacao">{{ page.data_hora_atualizacao }}</p>
+            <p class="info-autor">Por <strong>{{ page.autor }}</strong></p>
+            {{ page.content }}
+        </article>
+      </section>
+
+      {% if page.titulo_materia and page.url_materia and page.url_foto_materia %}
+      <section class="news">
+        <p>Saiba mais</p>
+        <div>
+          <a href="{{ page.url_materia }}" target="”_blank”">
+            <img src="{{ page.url_foto_materia }}" alt="" />
+            <div class="title-news">
+              <h3>
+                {{ page.titulo_materia }}
+              </h3>
+            </div>
+          </a>
+        </div>
+      </section>
+      {% else %} 
+      <section class="news" style="display: none;">
+      </section>
+      {% endif %}
+
+      {% if page.buscas_dia_semana %}
+      <section class="data {{ page.classe_categoria }}">
+        <div class="graphic-week">
+          <h3>Interesse de busca na última semana</h3>
+
+          <div id="graphic-line" class="graphic">
+            <canvas id="lineChart" width="600" height="300"></canvas>
+          </div>
+        </div>
+        <p class="btn-detalhes"></p>
+        <div class="more-infos">
+          <p>entenda os dados</p>
+          <p>
+            Os valores indicam o nível de interesse de pesquisa pelo termo
+            durante um determinado período. Uma pontuação de 100 representa o
+            ápice de popularidade de um termo. Já um valor de 50 significa que o
+            termo teve metade da popularidade. Por fim, a uma taxa de 0 indica
+            que não havia dados suficientes disponíveis para o termo em questão.
+          </p>
+        </div>
+      </section>
+      {% else %} 
+      <section class="data {{ page.classe_categoria }}" style="display: none;">
+        <div class="graphic-week">
+          <h3>Interesse de busca na última semana</h3>
+
+          <div id="graphic-line" class="graphic">
+            <canvas id="lineChart" width="600" height="300"></canvas>
+          </div>
+        </div>
+        <p class="btn-detalhes"></p>
+        <div class="more-infos">
+          <p>entenda os dados</p>
+          <p>
+            Os valores indicam o nível de interesse de pesquisa pelo termo
+            durante um determinado período. Uma pontuação de 100 representa o
+            ápice de popularidade de um termo. Já um valor de 50 significa que o
+            termo teve metade da popularidade. Por fim, a uma taxa de 0 indica
+            que não havia dados suficientes disponíveis para o termo em questão.
+          </p>
+        </div>
+      </section>
+      {% endif %}
+      
+
+      <section class="other-terms">
+        <h3>Outros termos em alta</h3>
+        <div class="terms">
+          <!-- <div class="politics">icms</div>
+          <div class="health">esg</div>
+          <div class="economy">irpf</div>
+          <div class="politics">arcabouço fiscal</div>
+          <div class="sports">odds</div>
+          <div class="politics">cpmi</div>
+          <div class="culture">lollapaloza</div>
+          <div class="sports">impedimento</div>
+          <div class="other">mono</div> -->
+        </div>
+      </section>
+
+      
+    </main>
+
+    <div class="back-home {{ page.classe_categoria }}">
+      <a href="/index.html">
+        <img src="./imagens/icon-back-home.png" alt="">
+      </a>
+    </div>
+
+    {% include popup-search.html %}
+
+
+    {% include footer.html %}
+
+    <!-- <script src="/template/page.js"></script> -->
+    <script>
+
+      // atualizar cor da pagina
+      // document.querySelector("body > header.page-template").style.backgroundColor = { page.cor }
+
+      
+
+      // Dados do Markdown
+      const markdownData = `
+        {{ page.buscas_dia_semana | jsonify }}
+      `;
+      let chartData
+      // Converter o Markdown para um objeto JavaScript
+      const convertedData = JSON.parse(markdownData);
+
+      // Verificar se há dados convertidos
+      if (convertedData && convertedData.length > 0) {
+        // Lista de dados para o gráfico
+        chartData = convertedData.map((entry) => ({
+          date: moment(entry.date, "DD/MM/YYYY").format("YYYY-MM-DD"),
+          average: entry.value,
+        }));
+
+        createdGraphicWeek();
+      }
+
+      function createdGraphicWeek() {
+
+          // Preparar os dados para o gráfico
+        const dates = chartData.map((obj) => moment(obj.date).format("DD/M"));
+        const averages = chartData.map((obj) => obj.average);
+
+        console.log(chartData);
+
+
+        // console.log(chartData)
+
+        let lineChartCanvas = document.getElementById("lineChart");
+        let ctx = lineChartCanvas.getContext("2d");
+        let gradientFill = ctx.createLinearGradient(0, 0, 0, 200);
+        gradientFill.addColorStop(0, "rgba(255,255,255,0.4)"); // Tom de branco mais forte no topo
+        gradientFill.addColorStop(1, "rgba(255,255,255,0.001)"); // Tom de branco mais suave na parte de baixo
+
+        // Configurar o gráfico
+        let chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: dates,
+            datasets: [
+              {
+                label: "Média",
+                data: averages,
+                backgroundColor: "rgba(0, 123, 255, 0.0)",
+                borderColor: "white",
+                borderWidth: 3,
+                lineTension: 0.4,
+                fill: true, // Preencher a área abaixo da linha
+                backgroundColor: gradientFill, // Gradiente de cor de fundo
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false, // Desabilitar a manutenção do aspect ratio
+            scales: {
+              x: {
+                grid: {
+                  display: false, // Remover as grades do eixo X
+                },
+                title: {
+                  display: true,
+                  //   text: 'Data',
+                  color: "rgba(255, 255, 255, 0.5)", // Cor do texto do eixo X com 50% de opacidade
+                },
+                ticks: {
+                  color: "rgba(255, 255, 255, 0.5)", // Cor dos rótulos do eixo X com 50% de opacidade
+                },
+              },
+              y: {
+                grid: {
+                  display: false, // Remover as grades do eixo Y
+                },
+                title: {
+                  display: true,
+                  //   text: 'Média',
+                  color: "rgba(255, 255, 255, 0.5)", // Cor do texto do eixo Y com 50% de opacidade
+                },
+                ticks: {
+                  color: "rgba(255, 255, 255, 0.5)", // Cor dos rótulos do eixo Y com 50% de opacidade
+                  maxTicksLimit: 4, // Exibir apenas três valores no eixo Y
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false, // Remover o rótulo "Média" do gráfico
+              },
+            },
+          },
+        });
+      }
+
+
+    document.querySelector("section.data > p.btn-detalhes").addEventListener("click", e =>{
+      document.querySelector("section.data > div.more-infos").classList.toggle("active")
+      document.querySelector("section.data > p.btn-detalhes").classList.toggle("active")
+    })
+
+    
+
+    // AJUSTANDO O TAMANHO DO TERMO
+
+    const elemento = document.querySelector("header.page-template .container h1 strong");
+    const textoTermo = elemento.innerText;
+
+    function verificarTamanhoTela() {
+      const larguraTela = window.innerWidth;
+      const largura = elemento.offsetWidth;
+
+      if (textoTermo.length > 6) {
+        elemento.style.fontSize = "3rem";
+        // elemento.innerHTML = textoTermo.replace(/ /g, "<br>");
+
+        if (larguraTela <= 660) {
+          document.querySelector("body header.page-template").style.height = "825px";
+          document.querySelector("header.page-template .container-termo").style.gap = "537px";
+        } else {
+          document.querySelector("body header.page-template").style.height = "";
+          document.querySelector("header.page-template .container-termo").style.gap = "";
+        }
+      }
+    }
+
+    // Chamar a função verificarTamanhoTela inicialmente
+    verificarTamanhoTela();
+
+    // Adicionar evento de escuta para redimensionamento da janela
+    window.addEventListener("resize", verificarTamanhoTela);
+
+
+    // REPRODUZINDO CONDIGO JS DO POPUP DE SEARCH:
+
+    let dataApi;
+    let dadosUltimaSemana;
+    let dadosUltimas4Semanas = [];
+    let dadosCompleto = [];
+
+
+    fetch(
+      "https://raw.githubusercontent.com/oquee/frontend_v3/main/api/dados.json"
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      dadosCompleto = data;
+      // Obter a última data de atualização
+      let ultimaData = data.reduce((max, p) => p.data_atualizacao > max ? p.data_atualizacao : max, data[0].data_atualizacao);
+
+      // Filtrar os dados usando a última data de atualização
+      dadosUltimaSemana = data.filter((item) => item.data_atualizacao === ultimaData);
+      // Ordenar os dados em relação ao percentual
+      dadosUltimaSemana.sort((a, b) => b.percent_trends - a.percent_trends);
+      // Chamar a função para criar o treemap com os dados filtrados e ordenados
+      dadosUltimaSemana = dadosUltimaSemana.slice(0, 10);
+
+
+  
+
+      let dataAtualizacao = data.reduce((max, p) => p.atualizacao > max ? p.data_atualizacao : max, data[0].atualizacao);
+
+      // Obter as últimas 4 semanas
+      let ultimas4Semanas = Array.from(
+        new Set(data.map((item) => item.data_atualizacao))
+      )
+        .sort((a, b) => new Date(b.split('/').reverse().join('-')) - new Date(a.split('/').reverse().join('-')))
+        .slice(0, 4);
+      // Filtrar os dados usando as últimas 4 semanas e termos únicos
+
+      ultimas4Semanas.forEach((data_atualizacao) => {
+        const termosSemana = data.filter(
+          (item) => item.data_atualizacao === data_atualizacao
+        );
+        termosSemana.forEach((termo) => {
+          const termoExistente = dadosUltimas4Semanas.find(
+            (dados) => dados.termo === termo.termo
+          );
+          if (!termoExistente) {
+            dadosUltimas4Semanas.push(termo);
+          }
+        });
+      });
+
+      // Ordenar os dados em relação ao percentual
+      dadosUltimas4Semanas.sort((a, b) => b.percent_trends - a.percent_trends);
+      // Chamar a função para criar o treemap com os dados filtrados e ordenados
+      dadosUltimas4Semanas = dadosUltimas4Semanas.slice(0, 10);
+
+      // criando os botoes dos termos em alta do final da página
+      btnTermosAlta()
+
+      })
+      .catch((error) => console.error(error));
+
+
+    function closeSearch() {
+      document.querySelector(".container-search").style.display = "none" 
+    }
+
+    function btnSearchSugestoes() {
+      console.log("ola")
+      document.querySelector(".container-search").style.display = "flex" 
+      document.querySelector("div.filter > p.text").innerText = "Sugestões de termos"
+      const maxTermos = 7;
+
+      const listView = document.querySelector('.list-view');
+      
+      // Limpa os elementos h3 existentes
+      while (listView.firstChild) {
+        listView.removeChild(listView.firstChild);
+      }
+      
+      for (let i = 0; i < dadosUltimas4Semanas.length && i < maxTermos; i++) {
+        let termo = dadosUltimas4Semanas[i].termo;
+        let permalink = dadosUltimas4Semanas[i].permalink;
+        
+        if (permalink === "") {
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+        } else {
+          permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+        }
+        
+        let tagA = document.createElement('a');
+        tagA.textContent = termo;
+        tagA.classList.add("term");
+        tagA.href = permalink; // Define o atributo href com o permalink ou com o termo em minúsculas
+        document.querySelector('.list-view').appendChild(tagA);
+      }
+    }
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function btnSearch() {
+      const searchInput = document.getElementById('search-input');
+      const listView = document.querySelector('.list-view');
+      const totalCaracteres = searchInput.value.length;
+      
+      // Limpa os elementos h3 existentes
+      while (listView.firstChild) {
+        listView.removeChild(listView.firstChild);
+      }
+
+      if (totalCaracteres == 0) {
+        document.querySelector("div.filter > p.text").innerText = "Sugestões de termos"
+
+      } else {
+        document.querySelector("div.filter > p.text").innerText = "Você busca por..."
+
+      }
+      
+      const termoBuscado = removerAcentos(searchInput.value.toLowerCase());
+      const maxTermos = 7;
+      let contador = 0;
+      
+      dadosCompleto.forEach(item => {
+        const termo = removerAcentos(item.termo.toLowerCase());
+        
+        if (termo.includes(termoBuscado) && contador < maxTermos) {
+          let tagA = document.createElement('a');
+          tagA.textContent = item.termo;
+          listView.appendChild(tagA);
+          contador++;
+          let permalink = item.permalink;
+          
+          if (permalink === "") {
+            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+          } else {
+            permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+          }
+          tagA.href = permalink;
+
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', btnSearch);
+
+
+    document.querySelector(".container-search .bg-popup").addEventListener("click", e => {
+      document.getElementById("popup").style.display = "none"
+    })
+
+    // Função para obter o domínio do site
+    function getDomain() {
+      return window.location.protocol + "//" + window.location.host;
+    }
+
+
+        // Função para compartilhar via WhatsApp
+    function shareViaWhatsApp() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Formate a mensagem de compartilhamento
+      var message = "Confira este link: " + url;
+
+      // Crie a URL do compartilhamento do WhatsApp
+      var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
+
+      // Abra a janela de compartilhamento do WhatsApp
+      window.open(whatsappUrl);
+    }
+
+    // Função para compartilhar via Twitter
+    function shareViaTwitter() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Formate a mensagem de compartilhamento
+      var message = "Confira este link: " + url;
+
+      // Crie a URL do compartilhamento do Twitter
+      var twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
+
+      // Abra a janela de compartilhamento do Twitter
+      window.open(twitterUrl);
+    }
+
+    // Função para copiar o link
+    function copyLink() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Crie um elemento temporário para a área de transferência
+      var tempInput = document.createElement("input");
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+
+      // Selecione o valor do elemento temporário
+      tempInput.select();
+
+      // Copie o valor para a área de transferência
+      document.execCommand("copy");
+
+      // Remova o elemento temporário
+      document.body.removeChild(tempInput);
+
+      // Exiba uma mensagem de sucesso (opcional)
+      alert("Link copiado para a área de transferência!");
+    }
+
+    // Obtenha os elementos dos botões
+    var whatsappButton = document.querySelector(".btn-redes img:nth-child(1)");
+    var twitterButton = document.querySelector(".btn-redes img:nth-child(2)");
+    var copyButton = document.querySelector(".btn-redes img:nth-child(3)");
+
+    // Adicione os eventos de clique aos botões
+    whatsappButton.addEventListener("click", shareViaWhatsApp);
+    twitterButton.addEventListener("click", shareViaTwitter);
+    copyButton.addEventListener("click", copyLink);
+
+    // ATIVANDO BOTÃO DO MENU
+
+    let btnMenu = document.querySelector("div.menu > img");
+
+    btnMenu.addEventListener("click", e => {
+      document.querySelector("body > section.container-menu").style.display = "flex";
+
+    });
+
+
+    let btnMenuClose = document.querySelector("div.column-2.menu-topo > nav > div > img")
+
+    btnMenuClose.addEventListener("click", e => {
+      document.querySelector("body > section.container-menu").style.display = "none"
+    })
+
+
+    function btnTermosAlta() {
+      let maxTermos = 8;
+      let listTermos = document.querySelector("section.other-terms > div");
+
+      for (let i = 0; i < dadosUltimas4Semanas.length && i < maxTermos; i++) {
+        let termo = dadosUltimas4Semanas[i].termo;
+        let permalink = dadosUltimas4Semanas[i].permalink;
+        let categoria = dadosUltimas4Semanas[i].categoria;
+        let translatedCategoria = translateCategoria(categoria);
+
+        if (permalink === "") {
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase());
+        } else {
+          permalink = getDomain() + "/o-que-e-" + permalink;
+        }
+
+        let tagA = document.createElement('a');
+        tagA.textContent = termo;
+
+        if (translatedCategoria) {
+          tagA.classList.add(translatedCategoria);
+        }
+
+        tagA.href = permalink;
+        listTermos.appendChild(tagA);
+      }
+    }
+
+    function translateCategoria(categoria) {
+      switch (categoria) {
+        case "Economia":
+          return "economy";
+        case "Saude":
+          return "health";
+        case "Cultura":
+          return "culture";
+        case "Politica":
+          return "politics";
+        case "Esportes":
+          return "sports";
+        case "Outros":
+          return "other";
+        default:
+          return "";
+      }
+    }
+
+    btnTermosAlta();
+
+    
+
+
+
+
+    </script>
+  </body>

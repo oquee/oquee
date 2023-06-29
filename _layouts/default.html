@@ -1,0 +1,74 @@
+
+{% include head.html %}
+
+<body>
+    {% include menu.html %}
+    <header>
+        <div class="container">
+            <div class="items-menu">
+                <img class="menu" src="./imagens/menu.svg" alt="Ícone do menu">
+                <div class="search" onclick="btnSearchSugestoes()">
+                    <p>Buscar</p>
+                    <img class="search-icon" src="./imagens/lupa.svg" alt="Ícone de busca">
+                </div>
+            </div>
+            <div class="infos-project">
+                <div class="caixa">
+                    <h1>O que é... 
+                        <span class="text_1">flopou?</span>
+                        <span class="text_2">hostel?</span>
+                        
+                    </h1>
+                </div>
+                <h2 class="descricao">Traduzindo a internet para você: conheça e entenda os termos em alta</h2>
+            </div>
+            <div class="logos">
+                <img class="estadao" src="./imagens/logo-estadao.svg" alt="">
+                <img class="trends" src="./imagens/logo-google-trends.svg" alt="" >
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="container week">
+            <p>Em alta nos últimos 7 dias</p>
+            <nav class="menu-categories">
+                <div class="btn all active">Todos</div>
+                <div class="btn politics">Política</div>
+                <div class="btn economy">Economia</div>
+                <div class="btn health">Saúde</div>
+                <div class="btn sports">Esportes</div>
+                <div class="btn culture">Cultura</div>
+                <div class="btn other">Outros</div>
+            </nav>
+            <div id="treemap-week"></div>
+            <p class="update">Dados atualizados em 10.04.2023, às 17h30</p>
+            <div class="line"></div>
+        </section>
+
+        <section class="container month">
+            <p>Em alta nos últimos 30 dias</p>
+            <nav class="menu-categories">
+                <div class="btn all active">Todos</div>
+                <div class="btn politics">Política</div>
+                <div class="btn economy">Economia</div>
+                <div class="btn health">Saúde</div>
+                <div class="btn sports">Esportes</div>
+                <div class="btn culture">Cultura</div>
+                <div class="btn other">Outros</div>
+            </nav>
+            <div id="treemap-month"></div>
+            <p class="update">Dados atualizados em 10.04.2023, às 17h30</p>
+        </section>
+
+    </main>
+
+    {% include popup-search.html %}
+
+    {% include footer.html %}
+
+    
+    <script src="./assets/main.js"></script>
+</body>
+</html>

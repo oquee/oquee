@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Projeto desenvolvido pelo Estadão em parceria com o Google Trends."
+    />
+    <title>O que é...? | Google Trends</title>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <link href="/assets/style.css" rel="stylesheet" />
+  </head>
+<body>
+
+  <section class="container-menu">
+    <div class="column-1"></div>
+    <div class="column-2 menu-topo">
+      <nav class="options-menu">
+        <div class="icon-close">
+          <img src="/imagens/icon-close.png" alt="">
+        </div>
+        <a href="/" class="menu home">Início</a>
+        <a href="/sobre" class="menu sobre">sobre o projeto</a>
+        <a href="/equipe" class="menu projetos">quem faz</a>
+        <a href="/politica-privacidade" class="menu habilidades">política de privacidade</a>
+        <img src="" alt="">
+      </nav>
+    </div>
+    <div class="column-3"></div>
+  </section>
+
+  <header class="page-template {{ page.classe_categoria }} {% if page.url_short == nil %}not-video{% else %}yes-video{% endif %}" style="background-color: rgb(185 185 185); max-height: 230px;">
+
+      <div class="container">
+        <div class="items-menu">
+          <div class="menu">
+            <img src="/imagens/menu.svg" alt="Ícone do menu" />
+          </div>
+          <a href="http://127.0.0.1:4000/">
+            <div class="logos-top">
+              <img class="logos-svg" src="/imagens/logos-top.svg" alt="" />
+            </div>
+          </a>
+          <div class="search" onclick="btnSearchSugestoes()">
+            <p>Buscar</p>
+            <img
+              class="search-icon"
+              src="/imagens/lupa.svg"
+              alt="Ícone de busca"
+            />
+          </div>
+        </div>
+
+        <div class="container-termo" style="display: flex; flex-direction: column; align-items: center;">
+          <div class="termo" style="max-width: 650px; height: 45px;">
+            <h1><strong style="font-size: 3rem;">{{ page.title }}</strong><strong></strong></h1>
+            <!-- <p>?</p> -->
+          </div>
+          <div class="btn-redes">
+            <img src="/imagens/btn-zap.svg" alt="" />
+            <img src="/imagens/btn-twitter.svg" alt="" />
+            <img src="/imagens/btn-link.svg" alt="" />
+          </div>
+        </div>
+     
+      
+
+      </div>
+    </header>
+
+    <main class="term-content">
+
+    
+      <section class="text">
+        
+        <article>
+          <p></p>
+          <p></p>
+          {% assign paragraphs = page.content | newline_to_br | split: '<br />' %}
+          {% for paragraph in paragraphs %}
+            <p>{{ paragraph }}</p>
+          {% endfor %}
+        </article>
+        
+        
+
+      </section>
+
+      
+    </main>
+
+    <div class="back-home {{ page.classe_categoria }}">
+      <a href="/index.html">
+        <img src="/imagens/icon-back-home.png" alt="">
+      </a>
+    </div>
+
+    {% include popup-search.html %}
+
+
+    <footer>
+      <div class="container">
+           <div class="footer-infos">
+              <div class="column1">
+                  <p>Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros.</p>
+              </div>
+              <div class="column2">
+                  
+                  <p><strong>Dados e automação: </strong><a href="#">Carina Dourado</a></p>
+                  <!-- <p><strong>Design e desenvolvimento: </strong><a href="#">Lucas Thaynan</a></p> -->
+                  <p><strong>Coordenação Google Trends: </strong><a href="#">Gabriela Caesar, Keila Guimarães e Simon Rogers</a></p>
+                  <p><strong>Coordenação Estadão: </strong><a href="#">Ricardo Grinbaum</a></p>
+                  <p><strong>Consultor visual: </strong><a href="#">Alberto Cairo</a></p>
+                      
+              </div>
+              <div class="column3">
+                  <div class="estadao">
+                      <p>um projeto</p>
+                      <img class="estadao" src="/imagens/logo-estadao.svg" alt="">
+              
+                  </div>
+                  <div class="trends">
+                      <p>em parceria com</p>
+                      <img class="trends" src="/imagens/logo-google-trends.svg" alt="" >
+                  </div>
+              </div>
+           </div>
+  
+           <div class="footer-politics">
+              <div>
+                  <a href="#">Política de privacidade</a>
+              </div>
+              
+          </div>
+          
+      </div>
+
+      <script>
+        // REPRODUZINDO CONDIGO JS DO POPUP DE SEARCH:
+
+    let dataApi;
+    let dadosUltimaSemana;
+    let dadosUltimas4Semanas = [];
+    let dadosCompleto = [];
+
+
+    fetch(
+      "https://raw.githubusercontent.com/oquee/frontend_v3/main/api/dados.json"
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      dadosCompleto = data;
+      // Obter a última data de atualização
+      let ultimaData = data.reduce((max, p) => p.data_atualizacao > max ? p.data_atualizacao : max, data[0].data_atualizacao);
+
+      // Filtrar os dados usando a última data de atualização
+      dadosUltimaSemana = data.filter((item) => item.data_atualizacao === ultimaData);
+      // Ordenar os dados em relação ao percentual
+      dadosUltimaSemana.sort((a, b) => b.percent_trends - a.percent_trends);
+      // Chamar a função para criar o treemap com os dados filtrados e ordenados
+      dadosUltimaSemana = dadosUltimaSemana.slice(0, 10);
+
+
+  
+
+      let dataAtualizacao = data.reduce((max, p) => p.atualizacao > max ? p.data_atualizacao : max, data[0].atualizacao);
+
+      // Obter as últimas 4 semanas
+      let ultimas4Semanas = Array.from(
+        new Set(data.map((item) => item.data_atualizacao))
+      )
+        .sort((a, b) => new Date(b.split('/').reverse().join('-')) - new Date(a.split('/').reverse().join('-')))
+        .slice(0, 4);
+      // Filtrar os dados usando as últimas 4 semanas e termos únicos
+
+      ultimas4Semanas.forEach((data_atualizacao) => {
+        const termosSemana = data.filter(
+          (item) => item.data_atualizacao === data_atualizacao
+        );
+        termosSemana.forEach((termo) => {
+          const termoExistente = dadosUltimas4Semanas.find(
+            (dados) => dados.termo === termo.termo
+          );
+          if (!termoExistente) {
+            dadosUltimas4Semanas.push(termo);
+          }
+        });
+      });
+
+      // Ordenar os dados em relação ao percentual
+      dadosUltimas4Semanas.sort((a, b) => b.percent_trends - a.percent_trends);
+      // Chamar a função para criar o treemap com os dados filtrados e ordenados
+      dadosUltimas4Semanas = dadosUltimas4Semanas.slice(0, 10);
+
+      // criando os botoes dos termos em alta do final da página
+      btnTermosAlta()
+
+      })
+      .catch((error) => console.error(error));
+
+
+    function closeSearch() {
+      document.querySelector(".container-search").style.display = "none" 
+    }
+
+    function btnSearchSugestoes() {
+      console.log("ola")
+      document.querySelector(".container-search").style.display = "flex" 
+      document.querySelector("div.filter > p.text").innerText = "Sugestões de termos"
+      const maxTermos = 7;
+
+      const listView = document.querySelector('.list-view');
+      
+      // Limpa os elementos h3 existentes
+      while (listView.firstChild) {
+        listView.removeChild(listView.firstChild);
+      }
+      
+      for (let i = 0; i < dadosUltimas4Semanas.length && i < maxTermos; i++) {
+        let termo = dadosUltimas4Semanas[i].termo;
+        let permalink = dadosUltimas4Semanas[i].permalink;
+        
+        if (permalink === "") {
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+        } else {
+          permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+        }
+        
+        let tagA = document.createElement('a');
+        tagA.textContent = termo;
+        tagA.classList.add("term");
+        tagA.href = permalink; // Define o atributo href com o permalink ou com o termo em minúsculas
+        document.querySelector('.list-view').appendChild(tagA);
+      }
+    }
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function btnSearch() {
+      const searchInput = document.getElementById('search-input');
+      const listView = document.querySelector('.list-view');
+      const totalCaracteres = searchInput.value.length;
+      
+      // Limpa os elementos h3 existentes
+      while (listView.firstChild) {
+        listView.removeChild(listView.firstChild);
+      }
+
+      if (totalCaracteres == 0) {
+        document.querySelector("div.filter > p.text").innerText = "Sugestões de termos"
+
+      } else {
+        document.querySelector("div.filter > p.text").innerText = "Você busca por..."
+
+      }
+      
+      const termoBuscado = removerAcentos(searchInput.value.toLowerCase());
+      const maxTermos = 7;
+      let contador = 0;
+      
+      dadosCompleto.forEach(item => {
+        const termo = removerAcentos(item.termo.toLowerCase());
+        
+        if (termo.includes(termoBuscado) && contador < maxTermos) {
+          let tagA = document.createElement('a');
+          tagA.textContent = item.termo;
+          listView.appendChild(tagA);
+          contador++;
+          let permalink = item.permalink;
+          
+          if (permalink === "") {
+            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+          } else {
+            permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+          }
+          tagA.href = permalink;
+
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', btnSearch);
+
+
+    document.querySelector(".container-search .bg-popup").addEventListener("click", e => {
+      document.getElementById("popup").style.display = "none"
+    })
+
+    // Função para obter o domínio do site
+    function getDomain() {
+      return window.location.protocol + "//" + window.location.host;
+    }
+
+
+        // Função para compartilhar via WhatsApp
+    function shareViaWhatsApp() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Formate a mensagem de compartilhamento
+      var message = "Confira este link: " + url;
+
+      // Crie a URL do compartilhamento do WhatsApp
+      var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
+
+      // Abra a janela de compartilhamento do WhatsApp
+      window.open(whatsappUrl);
+    }
+
+    // Função para compartilhar via Twitter
+    function shareViaTwitter() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Formate a mensagem de compartilhamento
+      var message = "Confira este link: " + url;
+
+      // Crie a URL do compartilhamento do Twitter
+      var twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
+
+      // Abra a janela de compartilhamento do Twitter
+      window.open(twitterUrl);
+    }
+
+    // Função para copiar o link
+    function copyLink() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      // Crie um elemento temporário para a área de transferência
+      var tempInput = document.createElement("input");
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+
+      // Selecione o valor do elemento temporário
+      tempInput.select();
+
+      // Copie o valor para a área de transferência
+      document.execCommand("copy");
+
+      // Remova o elemento temporário
+      document.body.removeChild(tempInput);
+
+      // Exiba uma mensagem de sucesso (opcional)
+      alert("Link copiado para a área de transferência!");
+    }
+
+    // Obtenha os elementos dos botões
+    var whatsappButton = document.querySelector(".btn-redes img:nth-child(1)");
+    var twitterButton = document.querySelector(".btn-redes img:nth-child(2)");
+    var copyButton = document.querySelector(".btn-redes img:nth-child(3)");
+
+    // Adicione os eventos de clique aos botões
+    whatsappButton.addEventListener("click", shareViaWhatsApp);
+    twitterButton.addEventListener("click", shareViaTwitter);
+    copyButton.addEventListener("click", copyLink);
+
+    // ATIVANDO BOTÃO DO MENU
+
+    let btnMenu = document.querySelector("div.menu > img");
+
+    btnMenu.addEventListener("click", e => {
+      document.querySelector("body > section.container-menu").style.display = "flex";
+
+    });
+
+
+    let btnMenuClose = document.querySelector("div.column-2.menu-topo > nav > div > img")
+
+    btnMenuClose.addEventListener("click", e => {
+      document.querySelector("body > section.container-menu").style.display = "none"
+    })
+      </script>
+      
+  </footer>
+  </body>
