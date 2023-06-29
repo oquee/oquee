@@ -87,7 +87,10 @@
         <article>
             <p class="info-atualizacao">{{ page.data_hora_atualizacao }}</p>
             <p class="info-autor">Por <strong>{{ page.autor }}</strong></p>
-            {{ page.content }}
+            {% assign paragraphs = page.content | newline_to_br | split: '<br />' %}
+            {% for paragraph in paragraphs %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
         </article>
       </section>
 
