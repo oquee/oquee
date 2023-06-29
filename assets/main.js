@@ -5,7 +5,7 @@ let dadosCompleto = [];
 
 function carregarDados() {
 
-  fetch("https://raw.githubusercontent.com/oquee/frontend_v3/main/api/dados.json")
+  fetch("https://raw.githubusercontent.com/oquee/oquee/main/api/dados.json")
   .then((response) => response.json())
   .then((data) => {
       dadosCompleto = data;
