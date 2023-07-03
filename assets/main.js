@@ -159,7 +159,8 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
     .append("a") // Adiciona o elemento de âncora
     .attr("href", function (d) {
       // Define o link para cada retângulo
-      return "https://www.example.com/" + d.data.termo;
+      let termo = (d.data.permalink ? d.data.permalink : (d.data.termo ? d.data.termo : "")).replace(/\s+/g, "-");
+      return "/o-que-e-" + termo;
     })
     .append("rect")
     .attr("width", function (d) {
@@ -191,8 +192,9 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
       }
     })
     .style("rx", 15)
+    .attr("ry", 15) // Adicione essa linha
     .on("click", function (d) {
-      window.open("https://www.example.com/" + d.data.termo, "_blank");
+      window.open("/" + d.data.termo, "_blank");
     });
 
   leaf
@@ -242,7 +244,7 @@ function addTextFirstElement(idMapa) {
   );
   const infoText = text.innerHTML;
   // console.log(text);
-  text.innerHTML = `<strong>${infoText}</strong> mais buscas na última semana`;
+  text.innerHTML = `<strong>${infoText}</strong> mais buscas na semana`;
 }
 
 // Seleciona os elementos dos menus
@@ -401,9 +403,9 @@ function btnSearchSugestoes() {
     let permalink = dadosUltimas4Semanas[i].permalink;
     
     if (permalink === "") {
-      permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+      permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
     } else {
-      permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao domínio do próprio site
+      permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-"); // Adiciona o permalink ao domínio do próprio site
     }
     
     
@@ -444,21 +446,20 @@ function btnSearch() {
   
   dadosCompleto.forEach(item => {
     const termo = removerAcentos(item.termo.toLowerCase());
-    
+
     if (termo.includes(termoBuscado) && contador < maxTermos) {
       let tagA = document.createElement('a');
       tagA.textContent = item.termo;
       listView.appendChild(tagA);
       contador++;
       let permalink = item.permalink;
-      
+
       if (permalink === "") {
-        permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+        permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-");
       } else {
-        permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+        permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-");
       }
       tagA.href = permalink;
-
     }
   });
 }

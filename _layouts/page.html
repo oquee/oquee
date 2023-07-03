@@ -42,7 +42,7 @@
           <div class="menu">
             <img src="/imagens/menu.svg" alt="Ícone do menu" />
           </div>
-          <a href="http://127.0.0.1:4000/">
+          <a href="/">
             <div class="logos-top">
               <img class="logos-svg" src="/imagens/logos-top.svg" alt="" />
             </div>
@@ -62,7 +62,7 @@
             <h1><strong style="font-size: 3rem;">{{ page.title }}</strong><strong></strong></h1>
             <!-- <p>?</p> -->
           </div>
-          <div class="btn-redes">
+          <div class="btn-redes" style="display: none;">
             <img src="/imagens/btn-zap.svg" alt="" />
             <img src="/imagens/btn-twitter.svg" alt="" />
             <img src="/imagens/btn-link.svg" alt="" />
@@ -95,7 +95,7 @@
       
     </main>
 
-    <div class="back-home {{ page.classe_categoria }}">
+    <div class="back-home {{ page.classe_categoria }}" style="background-color: #B9B9B9;">
       <a href="/index.html">
         <img src="/imagens/icon-back-home.png" alt="">
       </a>
@@ -122,24 +122,30 @@
               <div class="column3">
                   <div class="estadao">
                       <p>um projeto</p>
-                      <img class="estadao" src="/imagens/logo-estadao.svg" alt="">
+                      <a href="https://www.estadao.com.br/" target="_blank">
+                          <img class="estadao" src="/imagens/logo-estadao.svg" alt="">
+                      </a>
               
                   </div>
                   <div class="trends">
                       <p>em parceria com</p>
-                      <img class="trends" src="/imagens/logo-google-trends.svg" alt="" >
+                      <a href="https://trends.google.com.br/trends/" target="_blank">
+                          <img class="trends" src="/imagens/logo-google-trends.svg" alt="" >
+                      </a>
                   </div>
               </div>
            </div>
   
            <div class="footer-politics">
               <div>
-                  <a href="#">Política de privacidade</a>
+                  <a href="politica-privacidade">Política de privacidade</a>
               </div>
               
           </div>
           
       </div>
+      
+  </footer>
 
       <script>
         // REPRODUZINDO CONDIGO JS DO POPUP DE SEARCH:
@@ -227,9 +233,9 @@
         let permalink = dadosUltimas4Semanas[i].permalink;
         
         if (permalink === "") {
-          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
         } else {
-          permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+          permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-"); // Adiciona o permalink ao endereço do próprio site
         }
         
         let tagA = document.createElement('a');
@@ -268,23 +274,23 @@
       
       dadosCompleto.forEach(item => {
         const termo = removerAcentos(item.termo.toLowerCase());
-        
+
         if (termo.includes(termoBuscado) && contador < maxTermos) {
           let tagA = document.createElement('a');
           tagA.textContent = item.termo;
           listView.appendChild(tagA);
           contador++;
           let permalink = item.permalink;
-          
+
           if (permalink === "") {
-            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-");
           } else {
-            permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+            permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-");
           }
           tagA.href = permalink;
-
         }
       });
+
     }
 
     const searchInput = document.getElementById('search-input');

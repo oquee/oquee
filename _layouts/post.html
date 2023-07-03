@@ -87,10 +87,7 @@
         <article>
             <p class="info-atualizacao">{{ page.data_hora_atualizacao }}</p>
             <p class="info-autor">Por <strong>{{ page.autor }}</strong></p>
-            {% assign paragraphs = page.content | newline_to_br | split: '<br />' %}
-            {% for paragraph in paragraphs %}
-              <p>{{ paragraph }}</p>
-            {% endfor %}
+            {{ page.content }}
         </article>
       </section>
 
@@ -275,9 +272,12 @@
                   //   text: 'Média',
                   color: "rgba(255, 255, 255, 0.5)", // Cor do texto do eixo Y com 50% de opacidade
                 },
+                min: 0,
+                max: 100,
                 ticks: {
                   color: "rgba(255, 255, 255, 0.5)", // Cor dos rótulos do eixo Y com 50% de opacidade
-                  maxTicksLimit: 4, // Exibir apenas três valores no eixo Y
+                  maxTicksLimit: 6, // Exibir apenas três valores no eixo Y
+                  stepSize: 25
                 },
               },
             },
@@ -289,7 +289,6 @@
           },
         });
       }
-
 
     document.querySelector("section.data > p.btn-detalhes").addEventListener("click", e =>{
       document.querySelector("section.data > div.more-infos").classList.toggle("active")
@@ -413,9 +412,9 @@
         let permalink = dadosUltimas4Semanas[i].permalink;
         
         if (permalink === "") {
-          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
         } else {
-          permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+          permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-"); // Adiciona o permalink ao endereço do próprio site
         }
         
         let tagA = document.createElement('a');
@@ -463,9 +462,9 @@
           let permalink = item.permalink;
           
           if (permalink === "") {
-            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()); // Usa a variável "termo" em minúsculas
+            permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
           } else {
-            permalink = getDomain() + "/o-que-e-" + permalink; // Adiciona o permalink ao endereço do próprio site
+            permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-"); // Adiciona o permalink ao endereço do próprio site
           }
           tagA.href = permalink;
 
@@ -489,11 +488,15 @@
 
         // Função para compartilhar via WhatsApp
     function shareViaWhatsApp() {
+
+      
       // Obtenha o URL atual da página
       var url = window.location.href;
 
+      let nomeTermo = document.querySelector("h1 strong").innerText
+
       // Formate a mensagem de compartilhamento
-      var message = "Confira este link: " + url;
+      var message = "O que é " + nomeTermo + "? " + url;
 
       // Crie a URL do compartilhamento do WhatsApp
       var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
@@ -507,8 +510,10 @@
       // Obtenha o URL atual da página
       var url = window.location.href;
 
+      let nomeTermo = document.querySelector("h1 strong").innerText
+
       // Formate a mensagem de compartilhamento
-      var message = "Confira este link: " + url;
+      var message = "O que é " + nomeTermo + "? " + url;
 
       // Crie a URL do compartilhamento do Twitter
       var twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
@@ -578,9 +583,9 @@
         let translatedCategoria = translateCategoria(categoria);
 
         if (permalink === "") {
-          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase());
+          permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-");
         } else {
-          permalink = getDomain() + "/o-que-e-" + permalink;
+          permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-");
         }
 
         let tagA = document.createElement('a');
@@ -618,7 +623,10 @@
 
     
 
-
+    // function termoPage() {
+    //   let nomeTermo = document.querySelector("h1 strong")
+    //   console.log(nomeTermo.innerText)
+    // }
 
 
     </script>

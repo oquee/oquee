@@ -102,12 +102,12 @@ header div.container .logos {
 
 header div.container .logos .estadao {
   height: 17px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 header div.container .logos .trends {
   height: 20px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 header div.container .infos-project {
@@ -166,7 +166,8 @@ section.container-menu div {
 
 section.container-menu div.column-1 {
   background-color: var(--cinza-bg);
-  flex: 1;
+  width: 35px;
+  /* flex: 1; */
 }
 
 section.container-menu div.column-2 {
@@ -485,6 +486,7 @@ g g:nth-child(1) foreignObject > div .vezes_subida {
   padding-top: 10px;
   font-size: 13px !important;
   line-height: 16px;
+  max-width: 130px;
 }
 
 g g:nth-child(2) foreignObject > div {
@@ -494,7 +496,7 @@ g g:nth-child(2) foreignObject > div {
 .vezes_subida {
   font-weight: 500;
   font-size: 17px;
-  max-width: 240px;
+  max-width: 130px;
   /* quebra de linha */
   hyphens: none;
   color: #0505057a;
@@ -504,6 +506,14 @@ g#treemap g:hover {
   stroke-width: 4px;
   stroke-linejoin: round;
   paint-order: stroke;
+}
+
+#treemap-week > p,
+#treemap-month > p {
+  border: 10px solid #F9FBFD;
+    background-color: #ededee85;
+    border-radius: 20px;
+
 }
 
 footer {
@@ -1219,10 +1229,16 @@ section.foto-capa img {
 
 foreignObject > div > div.termo {
   text-transform: lowercase;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  width: 100%;
+
 }
 
 body > main > section.text > article > p.info-atualizacao {
   margin-top: 12px !important;
+  /* text-align: center; */
 }
 
 @media (max-width: 660px) {
@@ -1480,7 +1496,7 @@ body > main > section.text > article > p.info-atualizacao {
   }
 
   section.data .more-infos p:nth-child(2) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6rem;
   }
 
@@ -1545,6 +1561,10 @@ body > main > section.text > article > p.info-atualizacao {
   .container-search {
     align-items: flex-start;
     padding-top: 120px;
+  }
+
+  body > main > section.text > article > p.info-atualizacao {
+    text-align: center;
   }
 
 

@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
 #
-#     bundle exec jekyll serve --livereload
+#     bundle exec jekyll serve --livereload --host 0.0.0.0
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
@@ -17,6 +17,8 @@ gem "github-pages", "~> 228", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
+  gem 'jekyll-sitemap'
+  gem 'jekyll-admin'
   gem "jekyll-feed", "~> 0.15.1"
 end
 

@@ -1,6 +1,6 @@
 ---
-layout: page
 title: Política de Privacidade
+layout: page
 ---
 
 A sua privacidade é uma prioridade para nós. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as informações pessoais que você fornece ao utilizar nosso site. Pedimos que você leia atentamente esta política para compreender como tratamos os seus dados.
