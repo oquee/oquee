@@ -4,7 +4,7 @@ title: "lua de morango"
 categories: Outros
 classe_categoria: outros
 permalink: o-que-e-lua-de-morango
-data_hora_atualizacao: Publicado em 25/06/2023, às 20h30
+data_hora_atualizacao: Publicado em 28/06/2023, às 20h30
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
