@@ -6,7 +6,7 @@ classe_categoria: saude
 permalink: saude/o-que-e-ortotanasia
 redirect_from: /o-que-e-ortotanasia
 data_hora_atualizacao: Publicado em 04/07/2023, às 20h30
-autor: Lucas
+autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
 buscas_dia_semana: 
