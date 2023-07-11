@@ -1,5 +1,56 @@
 [
   {
+    "data_atualizacao": "15/06/2023",
+    "hora_atualizacao": "12h00",
+    "autor": "Gabriela Caesar",
+    "termo": "febre maculosa",
+    "permalink": "",
+    "categoria": "Saude",
+    "definicao": "A febre maculosa é uma doença infecciosa, febril aguda e de gravidade variável. Ela pode variar desde as formas clínicas leves e atípicas até formas graves, com elevada taxa de letalidade. A febre maculosa é causada por uma bactéria do gênero Rickettsia, transmitida pela picada do carrapato. No Brasil duas espécies de riquétsias estão associadas a quadros clínicos da Febre Maculosa.",
+    "percent_trends": "1450",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "16/06/2023",
+    "hora_atualizacao": "12h00",
+    "autor": "Gabriela Caesar",
+    "termo": "ecossexual",
+    "permalink": "",
+    "categoria": "Outros",
+    "definicao": "É uma fusão entre ambientalismo e sexualidade, focando sempre no amor pelo planeta. Refere-se a práticas diárias de sustentabilidade até sexo e cerimônias de casamento com elementos da natureza como as árvores. O termo ecossexual foi definido pela primeira vez por Elizabeth Stephens e Annie Sprinkle, que afirmam ter se casado com a Terra em 2008, e dizem ser \"artistas ecossexuais apaixonadas\". Juntas, criaram um manifesto.",
+    "percent_trends": "5000",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "22/06/2023",
+    "hora_atualizacao": "15h00",
+    "autor": "Gabriela Caesar",
+    "termo": "implosão",
+    "permalink": "",
+    "categoria": "Outros",
+    "definicao": "Implosão é o que ocorre quando um objeto, uma estrutura ou um edifício colapsa ou desmorona em direção ao seu centro. É o oposto da explosão, na qual a força que leva à destruição é liberada para fora a partir do centro do objeto.",
+    "percent_trends": "5000",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
     "data_atualizacao": "23/06/2023",
     "hora_atualizacao": "20h30",
     "autor": "Carina Dourado",
@@ -7,19 +58,36 @@
     "permalink": "danca-xaxado",
     "categoria": "Cultura",
     "definicao": "O Xaxado é uma dança tradicional e um estilo de música popular no Nordeste do Brasil, especialmente na região de Pernambuco. Caracterizada por movimentos vigorosos e marcados, a dança é executada ao som de instrumentos musicais típicos, como a sanfona, zabumba e triângulo. \n\nOs dançarinos geralmente usam roupas tradicionais, como chapéus de couro, gibões e cintos de couro adornados, criando uma atmosfera rústica e vibrante. O xaxado tem suas raízes na cultura do cangaço, um fenômeno social e histórico que ocorreu no Nordeste no início do século XX. Hoje em dia, o xaxado é preservado e celebrado como parte do patrimônio cultural da região.",
-    "percent_trends": "5100",
+    "percent_trends": "5000",
     "url_youtube": "https://www.youtube.com/embed/lTuuVsDiXUw",
     "url_foto_destaque": "",
     "buscas_dia_semana": "[{\"date\": \"01/06/2023\", \"value\": 0},{\"date\": \"02/06/2023\", \"value\": 0},{\"date\": \"03/06/2023\", \"value\": 0},{\"date\": \"04/06/2023\", \"value\": 5},{\"date\": \"05/06/2023\", \"value\": 20},{\"date\": \"06/06/2023\", \"value\": 30},{\"date\": \"07/06/2023\", \"value\": 15}]",
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "29/06/2023",
+    "hora_atualizacao": "13h00",
+    "autor": "Gabriela Caesar",
+    "termo": "inelegibilidade",
+    "permalink": "",
+    "categoria": "Politica",
+    "definicao": "A inelegibilidade está prevista em Lei com base no artigo 14 da Constituição Federal e determina que o cidadão fique impedido de ser votado por um determinado período de tempo. Entretanto, os outros direitos políticos da pessoa são mantidos, como o direito de votar e o de participar de partidos políticos.",
+    "percent_trends": "1750",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "30/06/2023",
     "hora_atualizacao": "19h30",
-    "autor": "Gabriela Caesar",
+    "autor": "Carina Dourado",
     "termo": "pmma",
     "permalink": "",
     "categoria": "Outros",
@@ -31,12 +99,12 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "04/07/2023",
     "hora_atualizacao": "19h30",
-    "autor": "Lucas",
+    "autor": "Carina Dourado",
     "termo": "CPMI",
     "permalink": "",
     "categoria": "Politica",
@@ -48,7 +116,7 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "04/07/2023",
@@ -65,7 +133,7 @@
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "04/07/2023",
@@ -82,12 +150,12 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "04/07/2023",
     "hora_atualizacao": "20h30",
-    "autor": "Lucas",
+    "autor": "Carina Dourado",
     "termo": "ortotanasia",
     "permalink": "",
     "categoria": "Saude",
@@ -99,7 +167,7 @@
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "04/07/2023",
@@ -116,12 +184,12 @@
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "06/07/2023",
     "hora_atualizacao": "19h30",
-    "autor": "Lucas",
+    "autor": "Carina Dourado",
     "termo": "mariola",
     "permalink": "",
     "categoria": "Cultura",
@@ -133,7 +201,7 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "06/07/2023",
@@ -150,7 +218,7 @@
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "06/07/2023",
@@ -167,12 +235,12 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "06/07/2023",
     "hora_atualizacao": "20h30",
-    "autor": "Gabriela Caesar",
+    "autor": "Carina Dourado",
     "termo": "perlita",
     "permalink": "mineral-perlita",
     "categoria": "Outros",
@@ -184,7 +252,41 @@
     "titulo_materia": "Eos suscipit commodi est explicabo voluptatum aut consequatur",
     "url_materia": "https://www12.senado.leg.br/hpsenado",
     "url_foto_materia": "https://olb.org.br/wp-content/uploads/2018/09/senador.jpg",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "06/07/2023",
+    "hora_atualizacao": "13h00",
+    "autor": "Gabriela Caesar",
+    "termo": "ace",
+    "permalink": "ace-tenis",
+    "categoria": "Esportes",
+    "definicao": "No tênis, um ace é um saque legal que não é tocado pelo recebedor, ganhando o ponto. No tênis profissional, os aces são geralmente vistos no primeiro saque de um jogador, onde o sacador pode golpear a bola com força máxima e ter mais chances com o posicionamento da bola, como os cantos mais distantes da caixa de saque.",
+    "percent_trends": "",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "06/07/2023",
+    "hora_atualizacao": "13h30",
+    "autor": "Gabriela Caesar",
+    "termo": "",
+    "permalink": "",
+    "categoria": "",
+    "definicao": "",
+    "percent_trends": "",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "07/07/2023",
@@ -201,7 +303,7 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "07/07/2023",
@@ -218,14 +320,14 @@
     "titulo_materia": "",
     "url_materia": "",
     "url_foto_materia": "",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
   },
   {
     "data_atualizacao": "11/07/2023",
     "hora_atualizacao": "16h40",
     "autor": "Gabriela Caesar",
     "termo": "threads",
-    "permalink": "",
+    "permalink": "rede-social-threads",
     "categoria": "Outros",
     "definicao": "Lorem ipsum dolor sit amet sed totam illo et veniam fugiat vel nihil saepe et consequatur sequi quo illo ipsa. Id sunt perspiciatis ut veritatis reprehenderit ut voluptatem cupiditate. \nQui consectetur mollitia aut omnis porro et autem fugit sit earum doloremque ut illo odio sit dolores odit vel velit repellat. Nam minus illum sed enim sint ut error consectetur aut voluptatem architecto et dolorum voluptatem. ",
     "percent_trends": "5000",
@@ -235,6 +337,91 @@
     "titulo_materia": "Localização, curtida e até religião: veja os dados o Threads coleta de você",
     "url_materia": "https://www.uol.com.br/tilt/noticias/redacao/2023/07/08/quais-dados-a-rede-social-threads-coleta-de-voce-a-politica-de-privacidade.htm",
     "url_foto_materia": "https://conteudo.imguol.com.br/c/noticias/62/2020/02/18/celular-smartphone-privacidade-dados-aplicativos-documento-1582053837533_v2_300x225.jpg.webp",
-    "atualizacao": "11.07.2023, às 16h48"
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "11/07/2023",
+    "hora_atualizacao": "16h50",
+    "autor": "Gabriela Caesar",
+    "termo": "reforma tributária",
+    "permalink": "",
+    "categoria": "Economia",
+    "definicao": "Lorem ipsum dolor sit amet sed totam illo et veniam fugiat vel nihil saepe et consequatur sequi quo illo ipsa. Id sunt perspiciatis ut veritatis reprehenderit ut voluptatem cupiditate. \nQui consectetur mollitia aut omnis porro et autem fugit sit earum doloremque ut illo odio sit dolores odit vel velit repellat. Nam minus illum sed enim sint ut error consectetur aut voluptatem architecto et dolorum voluptatem. ",
+    "percent_trends": "3550",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "11/07/2023",
+    "hora_atualizacao": "16h50",
+    "autor": "Gabriela Caesar",
+    "termo": "iva",
+    "permalink": "",
+    "categoria": "Economia",
+    "definicao": "O Imposto sobre Valor Agregado, ou IVA, é xxx ",
+    "percent_trends": "",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "11/07/2023",
+    "hora_atualizacao": "17h00",
+    "autor": "Gabriela Caesar",
+    "termo": "carf",
+    "permalink": "",
+    "categoria": "Economia",
+    "definicao": "O Conselho de Administração de Recursos Fiscais, ou Carf, é um órgão colegiado paritário, formado por conselheiros, representantes da Fazenda Nacional e dos contribuintes. A função dele é julgar em segunda instância administrativa os litígios tributários e aduaneiros e cuidar da padronização da jurisprudência do órgão, quando há recurso especial por divergência de entendimento entre os colegiados.",
+    "percent_trends": "500",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "11/07/2023",
+    "hora_atualizacao": "17h05",
+    "autor": "Gabriela Caesar",
+    "termo": "conar",
+    "permalink": "",
+    "categoria": "Outros",
+    "definicao": "O Conar é a sigla do Conselho Nacional de Autorregulamentação Publicitária, uma organização da sociedade civil, existente desde 1980. Sua principal missão é impedir que a publicidade enganosa ou abusiva cause constrangimento ao consumidor ou a empresas e defender a liberdade de expressão comercial.",
+    "percent_trends": "300",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
+  },
+  {
+    "data_atualizacao": "11/07/2023",
+    "hora_atualizacao": "17h05",
+    "autor": "Gabriela Caesar",
+    "termo": "ies",
+    "permalink": "",
+    "categoria": "Outros",
+    "definicao": "IES é a abreviação de Instituição de Ensino Superior, um termo que engloba universidades públicas e privadas, faculdades, institutos federais e outras instituições que oferecem cursos superiores.",
+    "percent_trends": "200",
+    "url_youtube": "",
+    "url_foto_destaque": "",
+    "buscas_dia_semana": "",
+    "titulo_materia": "",
+    "url_materia": "",
+    "url_foto_materia": "",
+    "atualizacao": "11.07.2023, às 17h14"
   }
 ]
