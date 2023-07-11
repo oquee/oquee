@@ -19,6 +19,7 @@ gem "github-pages", "~> 228", group: :jekyll_plugins
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-admin'
+  gem 'jekyll-redirect-from'
   gem "jekyll-feed", "~> 0.15.1"
 end
 

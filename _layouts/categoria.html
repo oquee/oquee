@@ -59,7 +59,7 @@
 
         <div class="container-termo" style="display: flex; flex-direction: column; align-items: center;">
           <div class="termo" style="max-width: 650px; height: 45px;">
-            <h1><strong style="font-size: 3rem;">{{ page.title }}</strong><strong></strong></h1>
+            <h1><strong style="font-size: 3rem;">Termos</strong><strong></strong></h1>
             <!-- <p>?</p> -->
           </div>
           <div class="btn-redes" style="display: none;">
@@ -78,16 +78,6 @@
 
     
       <section class="text">
-        
-        <article>
-          <p></p>
-          <p></p>
-          {% assign paragraphs = page.content | newline_to_br | split: '<br />' %}
-          {% for paragraph in paragraphs %}
-            <p>{{ paragraph }}</p>
-          {% endfor %}
-        </article>
-        
         
 
       </section>
@@ -204,8 +194,9 @@
       // Chamar a função para criar o treemap com os dados filtrados e ordenados
       dadosUltimas4Semanas = dadosUltimas4Semanas.slice(0, 10);
 
-      // criando os botoes dos termos em alta do final da página
-      btnTermosAlta()
+      // gerar lista dos termos
+
+      gerarListaTermos() 
 
       })
       .catch((error) => console.error(error));
@@ -397,6 +388,73 @@
     btnMenuClose.addEventListener("click", e => {
       document.querySelector("body > section.container-menu").style.display = "none"
     })
+
+    // gerando lista de dos termos
+
+    function gerarListaTermos() {
+  let dadosPorCategoria = {};
+  dadosCompleto.forEach(dado => {
+    if (!dadosPorCategoria[dado.categoria]){
+      dadosPorCategoria[dado.categoria] = []
+    }
+    dadosPorCategoria[dado.categoria].push(dado)
+  })
+  
+  let chaves = Object.keys(dadosPorCategoria);
+  chaves.splice(chaves.indexOf("Outros"), 1);
+  chaves.push("Outros");
+
+  chaves.forEach(categoria => {
+  dadosPorCategoria[categoria].sort((a, b) => a.termo.localeCompare(b.termo));
+
+  let div = document.createElement("div");
+  div.classList.add(categoria.toLowerCase());
+  div.classList.add("categoria");
+  div.setAttribute('id', categoria.toLowerCase());
+  
+  let h2 = document.createElement("h2");
+  h2.textContent = categoria;
+  div.appendChild(h2);
+  
+  let divLista = document.createElement("div");
+  divLista.classList.add("list-termo");
+  
+  let ul = document.createElement("ul");
+  dadosPorCategoria[categoria].forEach(dado => {
+    let li = document.createElement("li");
+    let link = document.createElement("a");
+    link.textContent = dado.termo.toLowerCase();
+    link.href = dado.permalink ? `/o-que-e-${dado.permalink.replace(/\s/g, "-")}` : "/o-que-e-" + dado.termo.replace(/\s/g, "-");
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
+
+  divLista.appendChild(ul);
+  div.appendChild(divLista);
+  
+  document.querySelector('.text').appendChild(div);
+
+
+  // window.addEventListener('DOMContentLoaded', function() {
+  //   var hash = window.location.hash.substr(1); // Obtém o identificador da URL após o '#'
+
+  //   if (hash) {
+  //     var target = document.getElementById(hash); // Encontra o elemento com o ID correspondente
+  //     if (target) {
+  //       window.scrollTo({
+  //         top: target.offsetTop, // Calcula a posição do elemento em relação ao topo da página
+  //         behavior: 'smooth' // Faz a rolagem suavemente
+  //       });
+  //     }
+  //   }
+  // });
+
+});
+
+}
+
+
+
       </script>
       
   </footer>

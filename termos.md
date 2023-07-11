@@ -1,0 +1,4 @@
+---
+title: termos
+layout: categoria
+---

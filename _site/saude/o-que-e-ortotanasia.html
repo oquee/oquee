@@ -1,10 +1,60 @@
 
-{% include head-post.html %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ortotanasia | O que é</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="ortotanasia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ortotanásia é um termo que se refere à prática de permitir que uma pessoa com uma doença terminal ou incurável morra naturalmente, sem intervenção médica desnecessária que possa prolongar o sofrimento ou adiar a morte inevitável. Diferentemente da eutanásia, a ortotanásia não envolve ação direta para acelerar a morte do paciente, mas sim o respeito à vontade do indivíduo e o cuidado paliativo para garantir conforto e qualidade de vida até o momento final." />
+<meta property="og:description" content="Ortotanásia é um termo que se refere à prática de permitir que uma pessoa com uma doença terminal ou incurável morra naturalmente, sem intervenção médica desnecessária que possa prolongar o sofrimento ou adiar a morte inevitável. Diferentemente da eutanásia, a ortotanásia não envolve ação direta para acelerar a morte do paciente, mas sim o respeito à vontade do indivíduo e o cuidado paliativo para garantir conforto e qualidade de vida até o momento final." />
+<link rel="canonical" href="http://localhost:4000/saude/o-que-e-ortotanasia" />
+<meta property="og:url" content="http://localhost:4000/saude/o-que-e-ortotanasia" />
+<meta property="og:site_name" content="O que é" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-01T00:00:00-03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ortotanasia" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-01T00:00:00-03:00","datePublished":"2023-01-01T00:00:00-03:00","description":"Ortotanásia é um termo que se refere à prática de permitir que uma pessoa com uma doença terminal ou incurável morra naturalmente, sem intervenção médica desnecessária que possa prolongar o sofrimento ou adiar a morte inevitável. Diferentemente da eutanásia, a ortotanásia não envolve ação direta para acelerar a morte do paciente, mas sim o respeito à vontade do indivíduo e o cuidado paliativo para garantir conforto e qualidade de vida até o momento final.","headline":"ortotanasia","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/saude/o-que-e-ortotanasia"},"url":"http://localhost:4000/saude/o-que-e-ortotanasia"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Projeto desenvolvido pelo Estadão em parceria com o Google Trends."
+    />
+    <title>O que é...? | Google Trends</title>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <link href="../assets/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="../imagens/favicon.ico">
+  </head>
 
 <body>
 
-  {% include menu.html %}
-  <header class="page-template {{ page.classe_categoria }} {% if page.url_short == nil %}not-video{% else %}yes-video{% endif %}">
+  <section class="container-menu">
+    <div class="column-1"></div>
+    <div class="column-2 menu-topo">
+      <nav class="options-menu">
+        <div class="icon-close">
+          <img src="../imagens/icon-close.png" alt="">
+        </div>
+        <a href="/" class="menu home">Início</a>
+        <a href="/sobre" class="menu sobre">sobre o projeto</a>
+        <a href="/equipe" class="menu projetos">quem faz</a>
+        <a href="/politica-privacidade" class="menu habilidades">política de privacidade</a>
+        <img src="" alt="">
+      </nav>
+    </div>
+    <div class="column-3"></div>
+  </section>
+  <header class="page-template saude not-video">
 
       <div class="container">
         <div class="items-menu">
@@ -25,10 +75,10 @@
             />
           </div>
         </div>
-        {% if page.url_short == nil %}
+        
         <div class="container-termo" style="display: flex; flex-direction: column; align-items: center;">
           <div class="termo" style="max-width: 650px;">
-            <h1>O que é <br><strong>{{ page.title }}</strong><strong></strong></h1>
+            <h1>O que é <br><strong>ortotanasia</strong><strong></strong></h1>
             <!-- <p>?</p> -->
           </div>
           <div class="btn-redes">
@@ -37,19 +87,7 @@
             <img src="../imagens/btn-link.svg" alt="" />
           </div>
         </div>
-      {% else %}
-        <div class="container-termo">
-          <div class="termo">
-            <h1 style="align-items: flex-start;">O que é <br><strong style="text-align: start;">{{ page.title }}</strong><strong></strong></h1>
-            <!-- <p>?</p> -->
-          </div>
-          <div class="btn-redes">
-            <img src="../imagens/btn-zap.svg" alt="" />
-            <img src="../imagens/btn-twitter.svg" alt="" />
-            <img src="../imagens/btn-link.svg" alt="" />
-          </div>
-        </div>
-      {% endif %}
+      
       
 
       </div>
@@ -57,64 +95,60 @@
 
     <main class="term-content">
 
-      {% if page.url_short %}
-        <section class="video">
-          <iframe
-            width="280"
-            height="530"
-            src="{{ page.url_short }}"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </section>
-      {% else %}
+      
         <section class="video" style="display: none;">
         </section>
-      {% endif %}
+      
 
-      {% if page.url_foto_destaque and page.url_short == nil %}
+      
         <section class="foto-capa">
-          <img src="{{ page.url_foto_destaque }}" alt="">
+          <img src="https://olb.org.br/wp-content/uploads/2018/09/senador.jpg" alt="">
         </section>
-      {% else %}
-        <section class="foto-capa" style="display: none !important;">
-        </section>
-      {% endif %}
+      
 
 
       <section class="text">
         
         <article>
-            <p class="info-atualizacao">{{ page.data_hora_atualizacao }}</p>
-            <p class="info-autor">Por <strong>{{ page.autor }}</strong></p>
-            {% assign paragraphs = page.content | newline_to_br | split: '<br />' %}
-            {% for paragraph in paragraphs %}
-              <p>{{ paragraph }}</p>
-            {% endfor %}
+            <p class="info-atualizacao">Publicado em 04/07/2023, às 20h30</p>
+            <p class="info-autor">Por <strong>Lucas Thaynan</strong></p>
+            
+            
+              <p><p>Ortotanásia é um termo que se refere à prática de permitir que uma pessoa com uma doença terminal ou incurável morra naturalmente, sem intervenção médica desnecessária que possa prolongar o sofrimento ou adiar a morte inevitável. Diferentemente da eutanásia, a ortotanásia não envolve ação direta para acelerar a morte do paciente, mas sim o respeito à vontade do indivíduo e o cuidado paliativo para garantir conforto e qualidade de vida até o momento final.</p></p>
+            
+              <p>
+</p>
+            
+              <p>
+<p>A ortotanásia está relacionada à ética médica e aos direitos do paciente, enfatizando o respeito à dignidade e autonomia do indivíduo em tomar decisões sobre o seu próprio fim de vida. A prática da ortotanásia é regulamentada por leis e regulamentos específicos em diferentes países.</p></p>
+            
+              <p>
+</p>
+            
+              <p>
+</p>
+            
         </article>
       </section>
 
-      {% if page.titulo_materia and page.url_materia and page.url_foto_materia %}
+      
       <section class="news">
         <p>Saiba mais</p>
         <div>
-          <a href="{{ page.url_materia }}" target="”_blank”">
-            <img src="{{ page.url_foto_materia }}" alt="" />
+          <a href="https://www12.senado.leg.br/hpsenado" target="”_blank”">
+            <img src="https://olb.org.br/wp-content/uploads/2018/09/senador.jpg" alt="" />
             <div class="title-news">
               <h3>
-                {{ page.titulo_materia }}
+                Eos suscipit commodi est explicabo voluptatum aut consequatur
               </h3>
             </div>
           </a>
         </div>
       </section>
-      {% else %} 
-      <section class="news" style="display: none;">
-      </section>
-      {% endif %}
+      
 
-      {% if page.buscas_dia_semana %}
-      <section class="data {{ page.classe_categoria }}">
+       
+      <section class="data saude" style="display: none;">
         <div class="graphic-week">
           <h3>Interesse de busca na última semana</h3>
 
@@ -134,28 +168,7 @@
           </p>
         </div>
       </section>
-      {% else %} 
-      <section class="data {{ page.classe_categoria }}" style="display: none;">
-        <div class="graphic-week">
-          <h3>Interesse de busca na última semana</h3>
-
-          <div id="graphic-line" class="graphic">
-            <canvas id="lineChart" width="600" height="300"></canvas>
-          </div>
-        </div>
-        <p class="btn-detalhes"></p>
-        <div class="more-infos">
-          <p>entenda os dados</p>
-          <p>
-            Os valores indicam o nível de interesse de pesquisa pelo termo
-            durante um determinado período. Uma pontuação de 100 representa o
-            ápice de popularidade de um termo. Já um valor de 50 significa que o
-            termo teve metade da popularidade. Por fim, a uma taxa de 0 indica
-            que não havia dados suficientes disponíveis para o termo em questão.
-          </p>
-        </div>
-      </section>
-      {% endif %}
+      
       
 
       <section class="other-terms">
@@ -176,16 +189,82 @@
       
     </main>
 
-    <div class="back-home {{ page.classe_categoria }}">
+    <div class="back-home saude">
       <a href="/index.html">
         <img src="../imagens/icon-back-home.png" alt="">
       </a>
     </div>
 
-    {% include popup-search.html %}
+    <section class="container-search" id="popup">
+    <div class="infos">
+        <div class="bar">
+            <div class="search">
+                <label for="search-input">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8742 19.1319C16.3093 19.1319 19.9046 15.5366 19.9046 11.1015C19.9046 6.6664 16.3093 3.07104 11.8742 3.07104C7.4391 3.07104 3.84375 6.6664 3.84375 11.1015C3.84375 15.5366 7.4391 19.1319 11.8742 19.1319Z" stroke="#B6B6B6" stroke-width="3.14977" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.9134 21.1397L17.5469 16.7732" stroke="#B6B6B6" stroke-width="3.14977" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
+                </label>
+                <input id="search-input" type="text" placeholder="Busque um termo">
+            </div>
+            <div>
+                <p class="btn-close" onclick="closeSearch()">Cancelar</p>
+            </div>
+        </div>
+        <div class="filter">
+            <p class="text">Sugestões de termos</p>
+            <div class="list-view">
+            </div>
+        </div>
+    </div>
+    <div class="bg-popup"></div>
+    
+</section>
 
 
-    {% include footer.html %}
+    <footer>
+    <div class="container">
+         <div class="footer-infos">
+            <div class="column1">
+                <p>Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros.</p>
+            </div>
+            <div class="column2">
+                
+                <p><strong>Dados e automação: </strong><a href="#">Carina Dourado</a></p>
+                <!-- <p><strong>Design e desenvolvimento: </strong><a href="#">Lucas Thaynan</a></p> -->
+                <p><strong>Coordenação Google Trends: </strong><a href="#">Gabriela Caesar, Keila Guimarães e Simon Rogers</a></p>
+                <p><strong>Coordenação Estadão: </strong><a href="#">Ricardo Grinbaum</a></p>
+                <p><strong>Consultor visual: </strong><a href="#">Alberto Cairo</a></p>
+                    
+            </div>
+            <div class="column3">
+                <div class="estadao">
+                    <p>um projeto</p>
+                    <a href="https://www.estadao.com.br/" target="_blank">
+                        <img class="estadao" src="../imagens/logo-estadao.svg" alt="">
+                    </a>
+            
+                </div>
+                <div class="trends">
+                    <p>em parceria com</p>
+                    <a href="https://trends.google.com.br/trends/" target="_blank">
+                        <img class="trends" src="../imagens/logo-google-trends.svg" alt="" >
+                    </a>
+                </div>
+            </div>
+         </div>
+
+         <div class="footer-politics">
+            <div>
+                <a href="politica-privacidade">Política de privacidade</a>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</footer>
 
     <!-- <script src="/template/page.js"></script> -->
     <script>
@@ -197,7 +276,7 @@
 
       // Dados do Markdown
       const markdownData = `
-        {{ page.buscas_dia_semana | jsonify }}
+        null
       `;
       let chartData
       // Converter o Markdown para um objeto JavaScript

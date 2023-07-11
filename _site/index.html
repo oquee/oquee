@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>O que é | Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="O que é" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros." />
+<meta property="og:description" content="Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="O que é" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="O que é" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros.","headline":"O que é","name":"O que é","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto desenvolvido pelo Estadão em parceria com o Google Trends.">
+    <title>O que é...? | Google Trends</title>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <link href="./assets/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="./imagens/favicon.ico">
+</head> 
+
+<body>
+    <section class="container-menu">
+    <div class="column-1"></div>
+    <div class="column-2 menu-topo">
+      <nav class="options-menu">
+        <div class="icon-close">
+          <img src="../imagens/icon-close.png" alt="">
+        </div>
+        <a href="/" class="menu home">Início</a>
+        <a href="/sobre" class="menu sobre">sobre o projeto</a>
+        <a href="/equipe" class="menu projetos">quem faz</a>
+        <a href="/politica-privacidade" class="menu habilidades">política de privacidade</a>
+        <img src="" alt="">
+      </nav>
+    </div>
+    <div class="column-3"></div>
+  </section>
+    <header>
+        <div class="container">
+            <div class="items-menu">
+                <img class="menu" src="./imagens/menu.svg" alt="Ícone do menu">
+                <div class="search" onclick="btnSearchSugestoes()">
+                    <p>Buscar</p>
+                    <img class="search-icon" src="./imagens/lupa.svg" alt="Ícone de busca">
+                </div>
+            </div>
+            <div class="infos-project">
+                <div class="caixa">
+                    <h1>O que é... 
+                        <span class="text_1">flopou?</span>
+                        <span class="text_2">hostel?</span>
+                        
+                    </h1>
+                </div>
+                <h2 class="descricao">Traduzindo a internet para você: conheça e entenda os termos em alta</h2>
+            </div>
+            <div class="logos">
+                <img class="estadao" src="./imagens/logo-estadao.svg" alt="">
+                <img class="trends" src="./imagens/logo-google-trends.svg" alt="" >
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="container week">
+            <p>Em alta nos últimos dias</p>
+            <nav class="menu-categories">
+                <div class="btn all active">Todos</div>
+                <div class="btn politics">Política</div>
+                <div class="btn economy">Economia</div>
+                <div class="btn health">Saúde</div>
+                <div class="btn sports">Esportes</div>
+                <div class="btn culture">Cultura</div>
+                <div class="btn other">Outros</div>
+            </nav>
+            <div id="treemap-week"></div>
+            <p class="update">Dados atualizados em 10.04.2023, às 17h30</p>
+            <div class="line"></div>
+        </section>
+
+        <section class="container month">
+            <p>Em alta nas últimas semanas</p>
+            <nav class="menu-categories">
+                <div class="btn all active">Todos</div>
+                <div class="btn politics">Política</div>
+                <div class="btn economy">Economia</div>
+                <div class="btn health">Saúde</div>
+                <div class="btn sports">Esportes</div>
+                <div class="btn culture">Cultura</div>
+                <div class="btn other">Outros</div>
+            </nav>
+            <div id="treemap-month"></div>
+            <p class="update">Dados atualizados em 10.04.2023, às 17h30</p>
+        </section>
+
+    </main>
+
+    <section class="container-search" id="popup">
+    <div class="infos">
+        <div class="bar">
+            <div class="search">
+                <label for="search-input">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8742 19.1319C16.3093 19.1319 19.9046 15.5366 19.9046 11.1015C19.9046 6.6664 16.3093 3.07104 11.8742 3.07104C7.4391 3.07104 3.84375 6.6664 3.84375 11.1015C3.84375 15.5366 7.4391 19.1319 11.8742 19.1319Z" stroke="#B6B6B6" stroke-width="3.14977" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.9134 21.1397L17.5469 16.7732" stroke="#B6B6B6" stroke-width="3.14977" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
+                </label>
+                <input id="search-input" type="text" placeholder="Busque um termo">
+            </div>
+            <div>
+                <p class="btn-close" onclick="closeSearch()">Cancelar</p>
+            </div>
+        </div>
+        <div class="filter">
+            <p class="text">Sugestões de termos</p>
+            <div class="list-view">
+            </div>
+        </div>
+    </div>
+    <div class="bg-popup"></div>
+    
+</section>
+
+    <footer>
+    <div class="container">
+         <div class="footer-infos">
+            <div class="column1">
+                <p>Este projeto te ajuda a conhecer mais detalhes sobre termos mais buscados pelos brasileiros.</p>
+            </div>
+            <div class="column2">
+                
+                <p><strong>Dados e automação: </strong><a href="#">Carina Dourado</a></p>
+                <!-- <p><strong>Design e desenvolvimento: </strong><a href="#">Lucas Thaynan</a></p> -->
+                <p><strong>Coordenação Google Trends: </strong><a href="#">Gabriela Caesar, Keila Guimarães e Simon Rogers</a></p>
+                <p><strong>Coordenação Estadão: </strong><a href="#">Ricardo Grinbaum</a></p>
+                <p><strong>Consultor visual: </strong><a href="#">Alberto Cairo</a></p>
+                    
+            </div>
+            <div class="column3">
+                <div class="estadao">
+                    <p>um projeto</p>
+                    <a href="https://www.estadao.com.br/" target="_blank">
+                        <img class="estadao" src="../imagens/logo-estadao.svg" alt="">
+                    </a>
+            
+                </div>
+                <div class="trends">
+                    <p>em parceria com</p>
+                    <a href="https://trends.google.com.br/trends/" target="_blank">
+                        <img class="trends" src="../imagens/logo-google-trends.svg" alt="" >
+                    </a>
+                </div>
+            </div>
+         </div>
+
+         <div class="footer-politics">
+            <div>
+                <a href="politica-privacidade">Política de privacidade</a>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</footer>
+
+    
+    <script src="./assets/main.js"></script>
+</body>
+</html>
