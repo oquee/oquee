@@ -10,7 +10,7 @@ autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
 buscas_dia_semana: 
-titulo_materia: 
+titulo_materia: ""
 url_materia: 
 url_foto_materia: 
 ---
