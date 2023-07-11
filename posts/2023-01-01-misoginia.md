@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "misoginia"
-categories: Cultura
-classe_categoria: cultura
-permalink: cultura/o-que-e-misoginia
+categories: Politica
+classe_categoria: politica
+permalink: politica/o-que-e-misoginia
 redirect_from: /o-que-e-misoginia
-data_hora_atualizacao: Publicado em 06/07/2023, às 19h30
+data_hora_atualizacao: Publicado em 06/06/2023, às 19h30
 autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
