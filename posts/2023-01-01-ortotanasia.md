@@ -10,7 +10,6 @@ autor: Lucas Thaynan
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
 buscas_dia_semana: 
-
 titulo_materia: Eos suscipit commodi est explicabo voluptatum aut consequatur
 url_materia: https://www12.senado.leg.br/hpsenado
 url_foto_materia: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
