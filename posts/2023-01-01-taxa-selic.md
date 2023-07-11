@@ -10,7 +10,7 @@ autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
 buscas_dia_semana: [{"date": "01/06/2023", "value": 0},{"date": "02/06/2023", "value": 0},{"date": "03/06/2023", "value": 0},{"date": "04/06/2023", "value": 5},{"date": "05/06/2023", "value": 20},{"date": "06/06/2023", "value": 30},{"date": "07/06/2023", "value": 15}]
-titulo_materia: 
+titulo_materia: ""
 url_materia: 
 url_foto_materia: 
 ---
