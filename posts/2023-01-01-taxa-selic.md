@@ -3,8 +3,8 @@ layout: post
 title: "taxa selic"
 categories: Economia
 classe_categoria: economia
-permalink: economia/o-que-e-selic
-redirect_from: /o-que-e-selic
+permalink: economia/o-que-e-taxa-selic
+redirect_from: /o-que-e-taxa-selic
 data_hora_atualizacao: Publicado em 04/07/2023, às 19h30
 autor: Carina Dourado
 url_short: 
