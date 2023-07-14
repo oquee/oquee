@@ -100,7 +100,7 @@ header div.container .logos {
   gap: 15px;
 }
 
-header div.container .logos .estadao {
+header div.container .logos .uol {
   height: 17px;
   /* cursor: pointer; */
 }
@@ -1301,7 +1301,7 @@ section.text .saude h2{
   background-color: var(--verde-categoria-15);
 }
 
-section.text .esporte h2 {
+section.text .esportes h2 {
   background-color: var(--roxo-categoria-15);
 }
 
@@ -1432,7 +1432,7 @@ section.text .list-termo ul li::before {
     width: 120px;
   }
 
-  div.column3 > div.estadao > img {
+  div.column3 > div.uol > img {
     width: 100px;
   }
 
@@ -1651,6 +1651,14 @@ section.text .list-termo ul li::before {
 
   body > main > section.text > article > p.info-atualizacao {
     text-align: center;
+  }
+
+  img.uol {
+    width: 52px !important;
+  } 
+
+  section.text .list-termo ul {
+    column-count: 1;
   }
 
 

@@ -101,12 +101,21 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
     .attr("id", "treemap")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-
-  const root = d3.hierarchy({ values: dataIntervalo }, function (d) {
+    const root = d3.hierarchy({ values: dataIntervalo }, function (d) {
       return d.values;
     })
     .sum(function (d) {
-      return d.percent_trends;
+      if (window.innerWidth < 600) { // Condicional para verificar se a largura da tela é menor que 600px
+        if (d.percent_trends <= 2200) // Condicional para verificar o valor de percent_trends
+          return 2200; // Valor de retorno modificado de acordo com a condição
+        else 
+          return d.percent_trends;
+      } else {
+        if (d.percent_trends <= 1400) // Condicional para verificar o valor de percent_trends
+          return 1400; // Valor de retorno padrão
+        else 
+          return d.percent_trends;
+      }
     })
     .sort(function (a, b) {
       return b.value - a.value;
