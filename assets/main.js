@@ -4,48 +4,64 @@ let dadosUltimas4Semanas = [];
 let dadosCompleto = [];
 
 function carregarDados() {
-
-  fetch("https://raw.githubusercontent.com/oquee/oquee.github.io/main/api/dados.json")
-  .then((response) => response.json())
-  .then((data) => {
+  fetch(
+    "https://raw.githubusercontent.com/oquee/oquee.github.io/main/api/dados.json"
+  )
+    .then((response) => response.json())
+    .then((data) => {
       dadosCompleto = data;
       // Obter a última data de atualização
-      let ultimaData = new Date(data.reduce((max, p) => p.data_atualizacao > max ? p.data_atualizacao : max, data[0].data_atualizacao));
+      let ultimaData = new Date(
+        data.reduce(
+          (max, p) => (p.data_atualizacao > max ? p.data_atualizacao : max),
+          data[0].data_atualizacao
+        )
+      );
       // Filtrar os dados pela última semana
-      dadosUltimaSemana = dadosCompleto.filter(d => {
-          // Convertendo date string para objeto Date
-          let dataAtualizacao = new Date(d.data_atualizacao.split("/").reverse().join("/"));
-          // Verificar se a data de atualização é dentro da última semana
-          let umaSemanaAtras = new Date();
-          umaSemanaAtras.setDate(umaSemanaAtras.getDate() - 7);
-          return dataAtualizacao >= umaSemanaAtras;
+      dadosUltimaSemana = dadosCompleto.filter((d) => {
+        // Convertendo date string para objeto Date
+        let dataAtualizacao = new Date(
+          d.data_atualizacao.split("/").reverse().join("/")
+        );
+        // Verificar se a data de atualização é dentro da última semana
+        let umaSemanaAtras = new Date();
+        umaSemanaAtras.setDate(umaSemanaAtras.getDate() - 7);
+        return dataAtualizacao >= umaSemanaAtras;
       });
       // Ordenar os dados em relação ao percentual
       dadosUltimaSemana.sort((a, b) => b.percent_trends - a.percent_trends);
       // Chamar a função para criar o treemap com os dados filtrados e ordenados
       dadosUltimaSemana = dadosUltimaSemana.slice(0, 15);
       createdTreeMap(dadosUltimaSemana, "#treemap-week", 5, 7);
- 
-  
 
-      let dataAtualizacao = data.reduce((max, p) => p.atualizacao > max ? p.data_atualizacao : max, data[0].atualizacao);
-      console.log("dataAtualizacao:", dataAtualizacao)
+      let dataAtualizacao = data.reduce(
+        (max, p) => (p.atualizacao > max ? p.data_atualizacao : max),
+        data[0].atualizacao
+      );
+      console.log("dataAtualizacao:", dataAtualizacao);
 
-      document.querySelector("section.container.week > p.update").innerText = `Dados atualizados em ${dataAtualizacao}`
-      document.querySelector("section.container.month > p.update").innerText = `Dados atualizados em ${dataAtualizacao}`
+      document.querySelector(
+        "section.container.week > p.update"
+      ).innerText = `Dados atualizados em ${dataAtualizacao}`;
+      document.querySelector(
+        "section.container.month > p.update"
+      ).innerText = `Dados atualizados em ${dataAtualizacao}`;
 
       let trintaDiasAtras = new Date();
       trintaDiasAtras.setDate(trintaDiasAtras.getDate() - 30);
 
-      dadosUltimas4Semanas = dadosCompleto.filter(d => {
-          let dataAtualizacao = new Date(d.data_atualizacao.split("/").reverse().join("/"));
-          return dataAtualizacao >= trintaDiasAtras;
+      dadosUltimas4Semanas = dadosCompleto.filter((d) => {
+        let dataAtualizacao = new Date(
+          d.data_atualizacao.split("/").reverse().join("/")
+        );
+        return dataAtualizacao >= trintaDiasAtras;
       });
 
-      dadosUltimas4Semanas = Array.from(new Set(dadosUltimas4Semanas.map(a => a.termo)))
-        .map(termo => {
-            return dadosUltimas4Semanas.find(a => a.termo === termo)
-        })
+      dadosUltimas4Semanas = Array.from(
+        new Set(dadosUltimas4Semanas.map((a) => a.termo))
+      ).map((termo) => {
+        return dadosUltimas4Semanas.find((a) => a.termo === termo);
+      });
 
       dadosUltimas4Semanas.sort((a, b) => b.percent_trends - a.percent_trends);
       dadosUltimas4Semanas = dadosUltimas4Semanas.slice(0, 15);
@@ -53,31 +69,29 @@ function carregarDados() {
       createdTreeMap(dadosUltimas4Semanas, "#treemap-month", 5, 7);
     })
     .catch((error) => console.error(error));
-
 }
 
 carregarDados();
 
 let initialWidth = window.innerWidth;
 
-window.addEventListener('resize', function(event) {
-    let newWidth = window.innerWidth;
-    if(newWidth !== initialWidth) {
-        if(document.querySelector('#treemap-week > svg')){
-          document.querySelector('#treemap-week > svg').remove();
-        }
-        if(document.querySelector('#treemap-month > svg')){
-            document.querySelector('#treemap-month > svg').remove();
-        }
-        createdTreeMap(dadosUltimaSemana, '#treemap-week', 5, 7);
-        createdTreeMap(dadosUltimas4Semanas, '#treemap-month', 5, 7);
-        initialWidth = newWidth;
+window.addEventListener("resize", function (event) {
+  let newWidth = window.innerWidth;
+  if (newWidth !== initialWidth) {
+    if (document.querySelector("#treemap-week > svg")) {
+      document.querySelector("#treemap-week > svg").remove();
     }
+    if (document.querySelector("#treemap-month > svg")) {
+      document.querySelector("#treemap-month > svg").remove();
+    }
+    createdTreeMap(dadosUltimaSemana, "#treemap-week", 5, 7);
+    createdTreeMap(dadosUltimas4Semanas, "#treemap-month", 5, 7);
+    initialWidth = newWidth;
+  }
 });
 
-
 function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
-  if(!data || data.length === 0) return; 
+  if (!data || data.length === 0) return;
   const margin = { top: 10, right: 0, bottom: 10, left: 0 };
   let dataIntervalo;
   let width, height;
@@ -90,46 +104,57 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
     dataIntervalo = data.slice(0, viewsMobile);
   }
 
-
   height = 500;
 
-  const svg = d3.select(idMapa)
+  const svg = d3
+    .select(idMapa)
     .append("svg")
-    .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+    .attr(
+      "viewBox",
+      `0 0 ${width + margin.left + margin.right} ${
+        height + margin.top + margin.bottom
+      }`
+    )
     .attr("preserveAspectRatio", "xMidYMid meet")
     .append("g")
     .attr("id", "treemap")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    const root = d3.hierarchy({ values: dataIntervalo }, function (d) {
+  const root = d3
+    .hierarchy({ values: dataIntervalo }, function (d) {
       return d.values;
     })
     .sum(function (d) {
-      if (window.innerWidth < 600) { // Condicional para verificar se a largura da tela é menor que 600px
-        if (d.percent_trends <= 2200) // Condicional para verificar o valor de percent_trends
+      if (window.innerWidth < 600) {
+        // Condicional para verificar se a largura da tela é menor que 600px
+        if (d.percent_trends <= 2200)
+          // Condicional para verificar o valor de percent_trends
           return 2200; // Valor de retorno modificado de acordo com a condição
-        else 
-          return d.percent_trends;
+        else return d.percent_trends;
       } else {
-        if (d.percent_trends <= 1400) // Condicional para verificar o valor de percent_trends
+        if (d.percent_trends <= 1400)
+          // Condicional para verificar o valor de percent_trends
           return 1400; // Valor de retorno padrão
-        else 
-          return d.percent_trends;
+        else return d.percent_trends;
       }
     })
     .sort(function (a, b) {
       return b.value - a.value;
     });
 
+  d3.treemap().size([width, height]).padding(4).round(true).paddingInner(5)(
+    root
+  );
 
-  d3.treemap().size([width, height]).padding(4).round(true).paddingInner(5)(root);
-
-  let leaf = svg.selectAll("g")
+  let leaf = svg
+    .selectAll("g")
     .data(root.leaves())
     .enter()
     .append("g")
     .attr("id", function (d) {
-      let termo = (d.data.permalink ? d.data.permalink : (d.data.termo ? d.data.termo : "")).replace(/\s+/g, "-");
+      let termo = (
+        d.data.permalink ? d.data.permalink : d.data.termo ? d.data.termo : ""
+      ).replace(/\s+/g, "-");
       return removerAcentos(termo.toLowerCase());
     })
     .attr("percentual", function (d) {
@@ -144,15 +169,19 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
       window.location.href = dominioAtual + "/o-que-e-" + permalink;
     });
 
-  leaf.append("a")
+  leaf
+    .append("a")
     .attr("href", function (d) {
-      var termo = (d.data.permalink ? d.data.permalink : (d.data.termo ? d.data.termo : "")).replace(/\s+/g, "-");
+      var termo = (
+        d.data.permalink ? d.data.permalink : d.data.termo ? d.data.termo : ""
+      ).replace(/\s+/g, "-");
       return "/o-que-e-" + termo;
     })
     .append("rect")
     .attr("width", function (d) {
       let termoLength = d.data.termo && d.data.termo.length;
-      const termoWidth = termoLength > 10 ? Math.max(d.x1 - d.x0, 70) : d.x1 - d.x0;
+      const termoWidth =
+        termoLength > 10 ? Math.max(d.x1 - d.x0, 70) : d.x1 - d.x0;
       return termoWidth;
     })
     .attr("height", function (d) {
@@ -181,12 +210,13 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
     .style("rx", 15)
     .attr("ry", 15)
     .on("click", function (d) {
-        if(d.data.termo){
-          window.open("/" + d.data.termo, "_blank");
-        }
+      if (d.data.termo) {
+        window.open("/" + d.data.termo, "_blank");
+      }
     });
 
-  leaf.append("foreignObject")
+  leaf
+    .append("foreignObject")
     .attr("x", 0)
     .attr("y", 0)
     .attr("width", function (d) {
@@ -207,7 +237,9 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
       if (d.data.percent_trends >= 5000) {
         labelValue = "+5.000";
       } else {
-        labelValue = d.data.percent_trends.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        labelValue = d.data.percent_trends
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       }
       return (
         "<div class='termo'>" +
@@ -218,10 +250,8 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
       );
     });
 
-   addTextFirstElement(idMapa);
+  addTextFirstElement(idMapa);
 }
-
-
 
 function addTextFirstElement(idMapa) {
   const text = document.querySelector(
@@ -245,39 +275,49 @@ let existingWidth, existingHeight;
 // Função para adicionar o evento de clique a cada botão do menu
 function addMenuClickEvent(menu, tipo) {
   // Seleciona todos os botões do menu
-  
-// Seleciona todos os botões do menu
-const menuButtons = menu.querySelectorAll(".btn");
 
-// Remove a classe "active" de todos os botões antes de adicionar o evento de clique
-menuButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    // Remove a classe "active" de todos os botões
-    menuButtons.forEach(function (btn) {
-      btn.classList.remove("active");
+  // Seleciona todos os botões do menu
+  const menuButtons = menu.querySelectorAll(".btn");
+
+  // Remove a classe "active" de todos os botões antes de adicionar o evento de clique
+  menuButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      // Remove a classe "active" de todos os botões
+      menuButtons.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+
+      // Adiciona a classe "active" ao botão clicado
+      this.classList.add("active");
     });
-
-    // Adiciona a classe "active" ao botão clicado
-    this.classList.add("active");
   });
-});
 
+  let btnAtualAtivo;
 
   // Adiciona um evento de clique a cada botão do menu
   menuButtons.forEach((button) => {
-
     button.addEventListener("click", () => {
       console.log(tipo);
 
-      button.classList.add("active")
+      button.classList.add("active");
 
       let categoriaBtn = button.textContent;
-      console.log("🚀 categoriaBtn:", button)
+
+      console.log("🚀 categoriaBtn:", button);
       console.log("categoriaBtn:", categoriaBtn);
+
+      if (categoriaBtn == btnAtualAtivo) {
+        console.log("### igual");
+        categoriaBtn = "Todos";
+        menuButtons.forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+        document.querySelector(`.${tipo} .btn.all`).classList.add("active")
+        menu.scrollLeft = 0;
+      }
 
       let treemapContainer = document.querySelector(`#treemap-${tipo}`);
       let existingSvg = treemapContainer.querySelector("svg");
-      
 
       if (existingSvg) {
         existingWidth = existingSvg.clientWidth;
@@ -292,13 +332,13 @@ menuButtons.forEach(function (button) {
       }
 
       if (tipo === "week") {
-
         if (categoriaBtn === "Todos") {
-
           createdTreeMap(dadosUltimaSemana, `#treemap-${tipo}`, 5, 7);
-          
         } else {
-          dadosFiltrados = dadosUltimaSemana.filter((item) => item.categoria.substring(0, 2) === categoriaBtn.substring(0, 2));
+          dadosFiltrados = dadosUltimaSemana.filter(
+            (item) =>
+              item.categoria.substring(0, 2) === categoriaBtn.substring(0, 2)
+          );
 
           console.log("categoriaBtn-week:", dadosFiltrados);
 
@@ -307,59 +347,70 @@ menuButtons.forEach(function (button) {
           } else {
             const semDadosText = document.createElement("p");
             semDadosText.textContent = "Não há termos desta categoria";
-            semDadosText.style.width = existingWidth ? existingWidth + "px" : "100%";
-            semDadosText.style.height = existingHeight ? existingHeight + "px" : "100%";
+            semDadosText.style.width = existingWidth
+              ? existingWidth + "px"
+              : "100%";
+            semDadosText.style.height = existingHeight
+              ? existingHeight + "px"
+              : "100%";
             semDadosText.style.margin = "0";
             semDadosText.style.paddingTop = "35px";
             semDadosText.style.display = "flex";
             semDadosText.style.justifyContent = "center";
             semDadosText.style.alignItems = "flex-start";
-            document.querySelector(`#treemap-${tipo}`).appendChild(semDadosText);
+            document
+              .querySelector(`#treemap-${tipo}`)
+              .appendChild(semDadosText);
           }
         }
-        
-        
       } else if (tipo === "month") {
-
         if (categoriaBtn === "Todos") {
-
           createdTreeMap(dadosUltimas4Semanas, `#treemap-${tipo}`, 5, 7);
-          
         } else {
-
-          dadosFiltrados = dadosUltimas4Semanas.filter((item) => item.categoria.substring(0, 2) === categoriaBtn.substring(0, 2));
+          dadosFiltrados = dadosUltimas4Semanas.filter(
+            (item) =>
+              item.categoria.substring(0, 2) === categoriaBtn.substring(0, 2)
+          );
 
           if (dadosFiltrados.length > 0) {
             createdTreeMap(dadosFiltrados, `#treemap-${tipo}`, 5, 7);
           } else {
             const semDadosText = document.createElement("p");
             semDadosText.textContent = "Não há termos desta categoria";
-            semDadosText.style.width = existingWidth ? existingWidth + "px" : "100%";
-            semDadosText.style.height = existingHeight ? existingHeight + "px" : "100%";
+            semDadosText.style.width = existingWidth
+              ? existingWidth + "px"
+              : "100%";
+            semDadosText.style.height = existingHeight
+              ? existingHeight + "px"
+              : "100%";
             semDadosText.style.margin = "0";
             semDadosText.style.paddingTop = "35px";
             semDadosText.style.display = "flex";
             semDadosText.style.justifyContent = "center";
             semDadosText.style.alignItems = "flex-start";
-            document.querySelector(`#treemap-${tipo}`).appendChild(semDadosText);
+            document
+              .querySelector(`#treemap-${tipo}`)
+              .appendChild(semDadosText);
           }
-  
+
           console.log("categoriaBtn-month:", dadosFiltrados);
-
         }
-       
       }
-  
 
-      // Obtém a posição da div clicada em relação ao menu
-      const position = button.getBoundingClientRect().left - 12; // Deixar margem left de 12px
-      console.log(button);
-      console.log(position);
-      // Faz a rolagem para a posição desejada
-      menu.scrollLeft += position;
+      if (categoriaBtn != "Todos") {
+        // Obtém a posição da div clicada em relação ao menu
+        const position = button.getBoundingClientRect().left - 12; // Deixar margem left de 12px
+        console.log(button);
+        console.log(position);
+        // Faz a rolagem para a posição desejada
+        menu.scrollLeft += position;
+        console.log(position)
+      }
+      // salvando
+      btnAtualAtivo = categoriaBtn;
     });
   });
-};
+}
 
 // Adiciona o evento de clique ao menuWeek
 addMenuClickEvent(menuWeek, "week");
@@ -368,127 +419,132 @@ addMenuClickEvent(menuWeek, "week");
 addMenuClickEvent(menuMonth, "month");
 
 function closeSearch() {
-  document.querySelector(".container-search").style.display = "none" 
+  document.querySelector(".container-search").style.display = "none";
 }
 
 function btnSearchSugestoes() {
   document.querySelector(".container-search").style.display = "flex";
-  document.querySelector("div.filter > p.text").innerText = "Sugestões de termos";
+  document.querySelector("div.filter > p.text").innerText =
+    "Sugestões de termos";
   const maxTermos = 7;
 
-  const listView = document.querySelector('.list-view');
-  
+  const listView = document.querySelector(".list-view");
+
   // Limpa os elementos h3 existentes
   while (listView.firstChild) {
     listView.removeChild(listView.firstChild);
   }
-  
+
   for (let i = 0; i < dadosUltimas4Semanas.length && i < maxTermos; i++) {
     let termo = dadosUltimas4Semanas[i].termo;
     let permalink = dadosUltimas4Semanas[i].permalink;
-    
+
     if (permalink === "") {
-      permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
+      permalink =
+        getDomain() +
+        "/o-que-e-" +
+        removerAcentos(termo.toLowerCase()).replace(/\s/g, "-"); // Usa a variável "termo" em minúsculas
     } else {
       permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-"); // Adiciona o permalink ao domínio do próprio site
     }
-    
-    
-    let tagA = document.createElement('a');
+
+    let tagA = document.createElement("a");
     tagA.textContent = termo;
     tagA.classList.add("term");
     tagA.href = permalink; // Define o atributo href com o permalink ou com o termo em minúsculas
-    document.querySelector('.list-view').appendChild(tagA);
+    document.querySelector(".list-view").appendChild(tagA);
   }
 }
-
 
 function removerAcentos(texto) {
   return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 function btnSearch() {
-  const searchInput = document.getElementById('search-input');
-  const listView = document.querySelector('.list-view');
+  const searchInput = document.getElementById("search-input");
+  const listView = document.querySelector(".list-view");
   const totalCaracteres = searchInput.value.length;
-  
+
   // Limpa os elementos h3 existentes
   while (listView.firstChild) {
     listView.removeChild(listView.firstChild);
   }
 
   if (totalCaracteres == 0) {
-    document.querySelector("div.filter > p.text").innerText = "Sugestões de termos"
-
+    document.querySelector("div.filter > p.text").innerText =
+      "Sugestões de termos";
   } else {
-    document.querySelector("div.filter > p.text").innerText = "Você busca por..."
-
+    document.querySelector("div.filter > p.text").innerText =
+      "Você busca por...";
   }
-  
+
   const termoBuscado = removerAcentos(searchInput.value.toLowerCase());
   const maxTermos = 7;
   let contador = 0;
-  
+
   let termoEncontrado = false; // Adicionar esta flag
 
-  dadosCompleto.forEach(item => {
+  dadosCompleto.forEach((item) => {
     const termo = removerAcentos(item.termo.toLowerCase());
 
     if (termo.includes(termoBuscado) && contador < maxTermos) {
       termoEncontrado = true; // Alterar a flag para true
-      let tagA = document.createElement('a');
+      let tagA = document.createElement("a");
       tagA.textContent = item.termo;
       listView.appendChild(tagA);
       contador++;
       let permalink = item.permalink;
 
       if (permalink === "") {
-        permalink = getDomain() + "/o-que-e-" + removerAcentos(termo.toLowerCase()).replace(/\s/g, "-");
+        permalink =
+          getDomain() +
+          "/o-que-e-" +
+          removerAcentos(termo.toLowerCase()).replace(/\s/g, "-");
       } else {
         permalink = getDomain() + "/o-que-e-" + permalink.replace(/\s/g, "-");
       }
       tagA.href = permalink;
-      }
-    });
-
-    // Se a flag ainda for false depois do loop, é porque o termo buscado não foi encontrado nos dados
-    if(!termoEncontrado){
-      document.querySelector("div.filter > p.text").innerText = ""
-      let p = document.createElement('p');
-      p.classList.add("not-termo")
-      p.textContent = "Termo não encontrado!";
-      listView.appendChild(p);
     }
-    
+  });
+
+  // Se a flag ainda for false depois do loop, é porque o termo buscado não foi encontrado nos dados
+  if (!termoEncontrado) {
+    document.querySelector("div.filter > p.text").innerText = "";
+    let p = document.createElement("p");
+    p.classList.add("not-termo");
+    p.textContent = "Termo não encontrado!";
+    listView.appendChild(p);
+  }
 }
 
-const searchInput = document.getElementById('search-input');
-searchInput.addEventListener('input', btnSearch);
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input", btnSearch);
 
-
-document.querySelector(".container-search .bg-popup").addEventListener("click", e => {
-  document.getElementById("popup").style.display = "none"
-})
+document
+  .querySelector(".container-search .bg-popup")
+  .addEventListener("click", (e) => {
+    document.getElementById("popup").style.display = "none";
+  });
 
 // Função para obter o domínio do site
 function getDomain() {
   return window.location.protocol + "//" + window.location.host;
 }
 
+// ATIVANDO BOTÃO DO MENU
 
+let btnMenu = document.querySelector("div.items-menu > img");
 
-  // ATIVANDO BOTÃO DO MENU
+btnMenu.addEventListener("click", (e) => {
+  document.querySelector("body > section.container-menu").style.display =
+    "flex";
+});
 
-  let btnMenu = document.querySelector("div.items-menu > img");
+let btnMenuClose = document.querySelector(
+  "div.column-2.menu-topo > nav > div > img"
+);
 
-  btnMenu.addEventListener("click", e => {
-    document.querySelector("body > section.container-menu").style.display = "flex";
-
-  });
-
-
-  let btnMenuClose = document.querySelector("div.column-2.menu-topo > nav > div > img")
-
-  btnMenuClose.addEventListener("click", e => {
-    document.querySelector("body > section.container-menu").style.display = "none"
-  })
+btnMenuClose.addEventListener("click", (e) => {
+  document.querySelector("body > section.container-menu").style.display =
+    "none";
+});

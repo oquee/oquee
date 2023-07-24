@@ -1,4 +1,4 @@
 ---
-title: termos
+title: todos os termos
 layout: categoria
 ---
