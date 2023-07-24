@@ -5,7 +5,7 @@ categories: Economia
 classe_categoria: economia
 permalink: economia/o-que-e-reforma-tributaria
 redirect_from: /o-que-e-reforma-tributaria
-data_hora_atualizacao: Publicado em 20/07/2023, às 16h50
+data_hora_atualizacao: Publicado em 13/07/2023, às 16h50
 autor: Gabriela Caesar
 url_short: https://www.youtube.com/embed/zd4cLsTpI0E
 url_foto_destaque: 
