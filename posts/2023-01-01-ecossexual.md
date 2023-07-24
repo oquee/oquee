@@ -14,5 +14,7 @@ titulo_materia: ""
 url_materia: 
 url_foto_materia: 
 ---
-É uma fusão entre ambientalismo e sexualidade, focando sempre no amor pelo planeta. Refere-se a práticas diárias de sustentabilidade até sexo e cerimônias de casamento com elementos da natureza como as árvores. O termo ecossexual foi definido pela primeira vez por Elizabeth Stephens e Annie Sprinkle, que afirmam ter se casado com a Terra em 2008, e dizem ser "artistas ecossexuais apaixonadas". Juntas, criaram um manifesto.
+É uma fusão entre ambientalismo e sexualidade, focando sempre no amor pelo planeta. Refere-se a práticas diárias de sustentabilidade até sexo e cerimônias de casamento com elementos da natureza como as árvores. 
+
+O termo ecossexual foi definido pela primeira vez por Elizabeth Stephens e Annie Sprinkle, que afirmam ter se casado com a Terra em 2008, e dizem ser "artistas ecossexuais apaixonadas". Juntas, criaram um manifesto.
 
