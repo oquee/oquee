@@ -5,7 +5,7 @@ categories: Saude
 classe_categoria: saude
 permalink: saude/o-que-e-septicemia
 redirect_from: /o-que-e-septicemia
-data_hora_atualizacao: Publicado em 20/07/2023, às 14h03
+data_hora_atualizacao: Publicado em 13/07/2023, às 14h03
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: https://conteudo.imguol.com.br/c/entretenimento/21/2020/01/22/sepse-e-causada-por-uma-reacao-desmedida-do-corpo-contra-infeccao-1579720978636_v2_900x506.jpg
