@@ -29,9 +29,9 @@
   --roxo-categoria-35: rgba(194, 128, 210, 0.35);
   --roxo-categoria-15: rgba(194, 128, 210, 0.15);
 
-  --cinza-categoria: rgba(154, 154, 154, 1);
-  --cinza-categoria-35: rgba(154, 154, 154, 0.35);
-  --cinza-categoria-15: rgba(154, 154, 154, 0.15);
+  --vermelho-categoria: rgba(234,89,89, 1);
+  --vermelho-categoria-35: rgba(234,89,89, 0.35);
+  --vermelho-categoria-15: rgba(234,89,89, 0.15);
 
   --cinza-bg: rgba(239, 239, 239, 1);
   --cinza-bg-7: rgba(221, 221, 221, 0.7);
@@ -123,6 +123,7 @@ header div.container .caixa {
   padding: 10px 30px;
   border-radius: 70px;
   width: 300px;
+  cursor: pointer;
 }
 
 header div.container .caixa h1 {
@@ -379,7 +380,7 @@ nav.menu-categories > .btn:focus {
 }
 
 .menu-categories .btn.other {
-  background-color: var(--cinza-categoria-15);
+  background-color: var(--vermelho-categoria-15);
 }
 
 .menu-categories .btn.all:hover {
@@ -407,7 +408,7 @@ nav.menu-categories > .btn:focus {
 }
 
 .menu-categories .btn.other:hover {
-  background-color: var(--cinza-categoria-35);
+  background-color: var(--vermelho-categoria-35);
 }
 
 /* TREEMAP */
@@ -574,6 +575,16 @@ div.footer-infos > div.column2 a {
   text-decoration: underline;
 }
 
+div.footer-infos > div.column2 > p {
+  line-height: 20px;
+  font-weight: 200;
+}
+
+div.footer-infos > div.column2 a.not-url {
+  /* text-decoration: none; */
+  cursor: auto;
+}
+
 div.footer-infos > div.column3 {
   width: 25%;
   display: flex;
@@ -664,7 +675,7 @@ section.data.cultura {
 body .back-home.outros,
 header.page-template.outros,
 section.data.outros {
-  background-color: var(--cinza-categoria);
+  background-color: var(--vermelho-categoria);
 }
 
 
@@ -995,7 +1006,7 @@ div.terms > a.sports {
 }
 
 div.terms > a.other {
-  background-color: var(--cinza-categoria);
+  background-color: var(--vermelho-categoria);
 }
 
 
@@ -1038,8 +1049,8 @@ section.container nav div.btn.sports.active {
 }
 
 section.container nav div.btn.other.active {
-  background-color: var(--cinza-categoria-35);
-  border: 2px solid var(--cinza-categoria);
+  background-color: var(--vermelho-categoria-35);
+  border: 2px solid var(--vermelho-categoria);
   font-weight: 500;
 }
 
@@ -1289,6 +1300,36 @@ section.text .list-termo {
   padding: 15px 30px;
 }
 
+body > main > section.text {
+  display: flex;
+  flex-direction: column;
+}
+
+section.text .politica {
+  order: 1;
+}
+
+section.text .economia {
+  order: 2;
+}
+
+section.text .saude {
+  order: 3;
+}
+
+section.text .esportes {
+  order: 4;
+}
+
+section.text .cultura {
+  order: 5;
+}
+
+section.text .outros {
+  order: 6;
+}
+
+
 section.text .politica h2 {
   background-color: var(--laranja-categoria-15);
 }
@@ -1310,7 +1351,7 @@ section.text .cultura h2 {
 }
 
 section.text .outros h2 {
-  background-color: var(--cinza-categoria-15);
+  background-color: var(--vermelho-categoria-15);
 }
 
 section.text .list-termo ul li::before {
@@ -1324,6 +1365,8 @@ section.text .list-termo ul li::before {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
 
 
 

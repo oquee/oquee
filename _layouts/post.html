@@ -33,7 +33,7 @@
           </div>
           <div class="btn-redes">
             <img src="../imagens/btn-zap.svg" alt="" />
-            <img src="../imagens/btn-twitter.svg" alt="" />
+            <img src="../imagens/btn-telegram.svg" alt="" />
             <img src="../imagens/btn-link.svg" alt="" />
           </div>
         </div>
@@ -45,7 +45,7 @@
           </div>
           <div class="btn-redes">
             <img src="../imagens/btn-zap.svg" alt="" />
-            <img src="../imagens/btn-twitter.svg" alt="" />
+            <img src="../imagens/btn-telegram.svg" alt="" />
             <img src="../imagens/btn-link.svg" alt="" />
           </div>
         </div>
@@ -537,6 +537,23 @@
       window.open(twitterUrl);
     }
 
+    // Função para compartilhar via Telegram
+    function shareViaTelegram() {
+      // Obtenha o URL atual da página
+      var url = window.location.href;
+
+      let nomeTermo = document.querySelector("h1 strong").innerText;
+
+      // Formate a mensagem de compartilhamento
+      var message = "O que é " + nomeTermo + "? " + url;
+
+      // Crie a URL do compartilhamento do Telegram
+      var telegramUrl = "https://t.me/share/url?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(message);
+
+      // Abra a janela de compartilhamento do Telegram
+      window.open(telegramUrl);
+    }
+
     // Função para copiar o link
     function copyLink() {
       // Obtenha o URL atual da página
@@ -562,12 +579,12 @@
 
     // Obtenha os elementos dos botões
     var whatsappButton = document.querySelector(".btn-redes img:nth-child(1)");
-    var twitterButton = document.querySelector(".btn-redes img:nth-child(2)");
+    var telegramButton = document.querySelector(".btn-redes img:nth-child(2)");
     var copyButton = document.querySelector(".btn-redes img:nth-child(3)");
 
     // Adicione os eventos de clique aos botões
     whatsappButton.addEventListener("click", shareViaWhatsApp);
-    twitterButton.addEventListener("click", shareViaTwitter);
+    telegramButton.addEventListener("click", shareViaTelegram);
     copyButton.addEventListener("click", copyLink);
 
     // ATIVANDO BOTÃO DO MENU

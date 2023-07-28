@@ -1,6 +1,6 @@
 ---
 title: politica
 layout: categoria
-permalink: /termos
+permalink: /termos#politica
 redirect_from: /politica
 ---

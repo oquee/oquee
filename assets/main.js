@@ -202,7 +202,7 @@ function createdTreeMap(data, idMapa, viewsDesk, viewsMobile) {
         case "Esportes":
           return "#C280D2";
         case "Outros":
-          return "#9A9A9A";
+          return "#ea5959";
         default:
           return "#CCCCCC";
       }
