@@ -3,5 +3,6 @@ layout: page
 title: Quem faz
 ---
 
-Bem-vindo ao nosso site, onde estamos empenhados em traduzir a imensidão da internet para você de maneira acessível e compreensível. Aqui, temos como objetivo oferecer um espaço onde você possa conhecer e entender os termos em alta, aqueles que estão em destaque e que são frequentemente mencionados no mundo online.
-A internet é uma poderosa ferramenta que conecta bilhões de pessoas em todo o mundo, mas também pode ser um lugar confuso e complexo, especialmente para aqueles que não estão familiarizados com sua terminologia. É por isso que estamos aqui para simplificar esse universo digital e fornecer a você as informações essenciais de forma clara e concisa.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+
+It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
