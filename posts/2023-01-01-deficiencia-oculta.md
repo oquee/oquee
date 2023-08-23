@@ -5,7 +5,7 @@ categories: Saude
 classe_categoria: saude
 permalink: saude/o-que-e-deficiencia-oculta
 redirect_from: /o-que-e-deficiencia-oculta
-data_hora_atualizacao: Publicado em 07/08/2023, às 20h15
+data_hora_atualizacao: Publicado em 22/08/2023, às 20h15
 autor: Gabriela Caesar
 url_short: https://www.youtube.com/embed/zd4cLsTpI0E
 url_foto_destaque: 
