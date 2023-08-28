@@ -25,7 +25,7 @@ function carregarDados() {
         );
         // Verificar se a data de atualização é dentro da última semana
         let umaSemanaAtras = new Date();
-        umaSemanaAtras.setDate(umaSemanaAtras.getDate() - 7);
+        umaSemanaAtras.setDate(umaSemanaAtras.getDate() - 10);
         return dataAtualizacao >= umaSemanaAtras;
       });
       // Ordenar os dados em relação ao percentual
