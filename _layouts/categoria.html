@@ -390,7 +390,8 @@
     let li = document.createElement("li");
     let link = document.createElement("a");
     link.textContent = dado.termo.toLowerCase();
-    link.href = dado.permalink ? `/o-que-e-${dado.permalink.replace(/\s/g, "-")}` : "/o-que-e-" + dado.termo.replace(/\s/g, "-");
+    let linkTermo = dado.permalink ? `/o-que-e-${dado.permalink.replace(/\s/g, "-")}` : "/o-que-e-" + dado.termo.replace(/\s/g, "-");
+    link.href = removerAcentos(linkTermo)
     li.appendChild(link);
     ul.appendChild(li);
   });
