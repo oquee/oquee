@@ -5,7 +5,7 @@ categories: Cultura
 classe_categoria: cultura
 permalink: cultura/o-que-e-oppernheimer
 redirect_from: /o-que-e-oppernheimer
-data_hora_atualizacao: Publicado em 19/08/2023, às 20h15
+data_hora_atualizacao: Publicado em 22/02/2024, às 20h15
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: https://conteudo.imguol.com.br/c/noticias/d7/2023/07/06/tela-de-celular-com-o-app-threads-da-meta-1688648748382_v2_900x506.jpg
