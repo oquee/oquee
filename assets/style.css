@@ -100,7 +100,7 @@ header div.container .logos {
   gap: 15px;
 }
 
-header div.container .logos .uol {
+header div.container .logos .estadao {
   height: 17px;
   /* cursor: pointer; */
 }
@@ -959,6 +959,7 @@ section.other-terms {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  border-top: 1px solid #a3a3a3;
 }
 
 section.other-terms h3 {
@@ -1475,7 +1476,7 @@ section.text .list-termo ul li::before {
     width: 120px;
   }
 
-  div.column3 > div.uol > img {
+  div.column3 > div.estadao > img {
     width: 100px;
   }
 
@@ -1696,7 +1697,7 @@ section.text .list-termo ul li::before {
     text-align: center;
   }
 
-  img.uol {
+  img.estadao {
     width: 52px !important;
   } 
 
