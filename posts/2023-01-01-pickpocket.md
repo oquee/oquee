@@ -5,9 +5,9 @@ categories: Outros
 classe_categoria: outros
 permalink: outros/o-que-e-pickpocket
 redirect_from: /o-que-e-pickpocket
-data_hora_atualizacao: Publicado em 20/08/2023, às 20h15
+data_hora_atualizacao: Publicado em 22/02/2024, às 20h15
 autor: Gabriela Caesar
-url_short: https://www.youtube.com/embed/zd4cLsTpI0E
+url_short: https://www.youtube.com/embed/lTuuVsDiXUw
 url_foto_destaque: 
 buscas_dia_semana: 
 titulo_materia: ""
