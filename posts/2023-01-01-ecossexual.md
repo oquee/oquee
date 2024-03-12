@@ -5,7 +5,7 @@ categories: Outros
 classe_categoria: outros
 permalink: outros/o-que-e-ecossexual
 redirect_from: /o-que-e-ecossexual
-data_hora_atualizacao: Publicado em 16/06/2023, às 12h00
+data_hora_atualizacao: Publicado em 16/06/2024, às 12h00
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
