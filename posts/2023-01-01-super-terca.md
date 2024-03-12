@@ -5,7 +5,7 @@ categories: Politica
 classe_categoria: politica
 permalink: politica/o-que-e-super-terca
 redirect_from: /o-que-e-super-terca
-data_hora_atualizacao: Publicado em 12/03/2024, às 10h
+data_hora_atualizacao: Publicado em 04/03/2024, às 10h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
