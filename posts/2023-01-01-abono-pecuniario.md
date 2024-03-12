@@ -5,7 +5,7 @@ categories: Economia
 classe_categoria: economia
 permalink: economia/o-que-e-abono-pecuniario
 redirect_from: /o-que-e-abono-pecuniario
-data_hora_atualizacao: Publicado em 12/03/2024, às 10h
+data_hora_atualizacao: Publicado em 09/03/2024, às 10h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
