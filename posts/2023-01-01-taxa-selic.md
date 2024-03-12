@@ -5,7 +5,7 @@ categories: Economia
 classe_categoria: economia
 permalink: economia/o-que-e-taxa-selic
 redirect_from: /o-que-e-taxa-selic
-data_hora_atualizacao: Publicado em 20/08/2023, às 19h30
+data_hora_atualizacao: Publicado em 20/08/2024, às 19h30
 autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
