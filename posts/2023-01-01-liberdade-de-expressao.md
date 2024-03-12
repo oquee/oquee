@@ -5,7 +5,7 @@ categories: Politica
 classe_categoria: politica
 permalink: politica/o-que-e-liberdade-de-expressao
 redirect_from: /o-que-e-liberdade-de-expressao
-data_hora_atualizacao: Publicado em 12/03/2024, às 8h
+data_hora_atualizacao: Publicado em 10/03/2024, às 8h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
