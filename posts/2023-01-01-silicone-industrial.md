@@ -5,7 +5,7 @@ categories: Saude
 classe_categoria: saude
 permalink: saude/o-que-e-silicone
 redirect_from: /o-que-e-silicone
-data_hora_atualizacao: Publicado em 04/05/2024, às 20h30
+data_hora_atualizacao: Publicado em 04/01/2024, às 20h30
 autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
