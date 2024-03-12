@@ -5,7 +5,7 @@ categories: Saude
 classe_categoria: saude
 permalink: saude/o-que-e-jejum-intermitente
 redirect_from: /o-que-e-jejum-intermitente
-data_hora_atualizacao: Publicado em 01/07/2023, às 13h30
+data_hora_atualizacao: Publicado em 01/07/2024, às 13h30
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
