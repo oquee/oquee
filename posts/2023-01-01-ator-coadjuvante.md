@@ -5,7 +5,7 @@ categories: Cultura
 classe_categoria: cultura
 permalink: cultura/o-que-e-ator-coadjuvante
 redirect_from: /o-que-e-ator-coadjuvante
-data_hora_atualizacao: Publicado em 12/03/2024, às 8h
+data_hora_atualizacao: Publicado em 11/03/2024, às 8h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
