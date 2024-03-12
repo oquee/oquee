@@ -5,7 +5,7 @@ categories: Politica
 classe_categoria: politica
 permalink: politica/o-que-e-inelegibilidade
 redirect_from: /o-que-e-inelegibilidade
-data_hora_atualizacao: Publicado em 20/08/2024, às 13h00
+data_hora_atualizacao: Publicado em 20/01/2024, às 13h00
 autor: Gabriela Caesar
 url_short: https://www.youtube.com/embed/lTuuVsDiXUw
 url_foto_destaque: 
