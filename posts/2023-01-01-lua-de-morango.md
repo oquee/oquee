@@ -5,7 +5,7 @@ categories: Outros
 classe_categoria: outros
 permalink: outros/o-que-e-lua-de-morango
 redirect_from: /o-que-e-lua-de-morango
-data_hora_atualizacao: Publicado em 06/06/2024, às 20h30
+data_hora_atualizacao: Publicado em 06/01/2024, às 20h30
 autor: Carina Dourado
 url_short: 
 url_foto_destaque: https://olb.org.br/wp-content/uploads/2018/09/senador.jpg
