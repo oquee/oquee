@@ -5,7 +5,7 @@ categories: Politica
 classe_categoria: politica
 permalink: politica/o-que-e-precatorio
 redirect_from: /o-que-e-precatorio
-data_hora_atualizacao: Publicado em 05/03/2024, às 13h
+data_hora_atualizacao: Publicado em 01/03/2024, às 13h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
