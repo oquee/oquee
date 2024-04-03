@@ -5,7 +5,7 @@ categories: Outros
 classe_categoria: outros
 permalink: outros/o-que-e-onboarding
 redirect_from: /o-que-e-onboarding
-data_hora_atualizacao: Publicado em 01/03/2024, às 10h
+data_hora_atualizacao: Publicado em 22/03/2024, às 10h
 autor: Gabriela Caesar
 url_short: 
 url_foto_destaque: 
