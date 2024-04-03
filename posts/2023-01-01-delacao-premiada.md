@@ -7,7 +7,7 @@ permalink: politica/o-que-e-delacao-premiada
 redirect_from: /o-que-e-delacao-premiada
 data_hora_atualizacao: Publicado em 22/01/2024, às 20h15
 autor: Gabriela Caesar
-url_short: https://www.youtube.com/embed/lTuuVsDiXUw
+url_short: https://www.youtube.com/shorts/bSHiZRKLI-k
 url_foto_destaque: 
 buscas_dia_semana: 
 titulo_materia: ""
