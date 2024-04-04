@@ -105,6 +105,11 @@ header div.container .logos .estadao {
   /* cursor: pointer; */
 }
 
+header div.container .logos .logo-folha {
+  height: 17px;
+  /* cursor: pointer; */
+}
+
 header div.container .logos .trends {
   height: 20px;
   /* cursor: pointer; */
