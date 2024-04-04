@@ -1,8 +1,6 @@
 {
   "scripts": {
-    "build": "bundle exec jekyll build"
-  },
-  "engines": {
-    "node": ">= 10.0.0"
+    "build": "bundle install && bundle exec jekyll build",
+    "postinstall": "bundle install"
   }
 }
