@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "mercurio retrogrado"
+title: "mercúrio retrógrado"
 categories: Outros
 classe_categoria: outros
 permalink: outros/o-que-e-mercurio-retrogrado
